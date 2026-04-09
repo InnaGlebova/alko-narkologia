@@ -11,13 +11,13 @@
     "deploy": "npm run build && gh-pages -d dist"
   },
   "author": "inna",
-  "homepage": "https://innaglebova.github.io/zdravum/",
+  "homepage": "https://innaglebova.github.io/alko-narkologia/",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/InnaGlebova/zdravum.git"
+    "url": "git+https://github.com/InnaGlebova/alko-narkologia.git"
   },
   "bugs": {
-    "url": "https://github.com/InnaGlebova/zdravum/issues"
+    "url": "https://github.com/InnaGlebova/alko-narkologia/issues"
   },
   "keywords": [
     "multipage",

@@ -743,7 +743,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 new ymaps.Placemark(
                   markerCoordinates,
                   {
-                    balloonContent: "Наркологическая клиника Здравум",
+                    balloonContent: "Наркологическая клиника АлкоНаркология",
                   },
                   {
                     iconLayout: "default#image",

@@ -1,10 +1,10 @@
-# Здравум - Медицинская клиника
+# АлкоНаркология - Медицинская клиника
 
-![GitHub Pages](https://github.com/InnaGlebova/zdravum/actions/workflows/deploy.yml/badge.svg)
-![GitHub last commit](https://img.shields.io/github/last-commit/InnaGlebova/zdravum)
-![GitHub repo size](https://img.shields.io/github/repo-size/InnaGlebova/zdravum)
+![GitHub Pages](https://github.com/InnaGlebova/alko-narkologia/actions/workflows/deploy.yml/badge.svg)
+![GitHub last commit](https://img.shields.io/github/last-commit/InnaGlebova/alko-narkologia)
+![GitHub repo size](https://img.shields.io/github/repo-size/InnaGlebova/alko-narkologia)
 
-Многостраничный адаптивный сайт медицинской клиники "Здравум", специализирующейся на лечении алкоголизма и наркомании в Астрахани.
+Многостраничный адаптивный сайт медицинской клиники "АлкоНаркология", специализирующейся на лечении алкоголизма и наркомании в Астрахани.
 
 ## 🏥 О проекте
 
@@ -23,27 +23,26 @@
 
 ## 🚀 Demo
 
-Проект развернут на GitHub Pages: [Посмотреть сайт](https://innaglebova.github.io/zdravum/)
-
+Проект развернут на GitHub Pages: [Посмотреть сайт](https://innaglebova.github.io/alko-narkologia/)
 
 ## 📋 Структура сайта
 
-- [Главная страница](https://innaglebova.github.io/zdravum/index.html)
-- [Услуги](https://innaglebova.github.io/zdravum/service.html)
-- [О клинике](https://innaglebova.github.io/zdravum/about.html)
-- [Статья детальная](https://innaglebova.github.io/zdravum/article.html)
-- [Статьи](https://innaglebova.github.io/zdravum/articles.html)
-- [Контакты](https://innaglebova.github.io/zdravum/contacts.html)
-- [Врач детальный](https://innaglebova.github.io/zdravum/doctor.html)
-- [Врачи](https://innaglebova.github.io/zdravum/doctors.html)
-- [FAQ](https://innaglebova.github.io/zdravum/faq.html)
-- [Галерея](https://innaglebova.github.io/zdravum/gallery.html)
-- [Карта сайта](https://innaglebova.github.io/zdravum/karta-sayta.html)
-- [Лицензии](https://innaglebova.github.io/zdravum/licences.html)
-- [Ошибка 404](https://innaglebova.github.io/zdravum/notfound.html)
-- [Прайс](https://innaglebova.github.io/zdravum/price.html)
-- [Политика конфединциальности](https://innaglebova.github.io/zdravum/privacy.html)
-- [Отзывы](https://innaglebova.github.io/zdravum/reviews.html)
+- [Главная страница](https://innaglebova.github.io/alko-narkologia/index.html)
+- [Услуги](https://innaglebova.github.io/alko-narkologia/service.html)
+- [О клинике](https://innaglebova.github.io/alko-narkologia/about.html)
+- [Статья детальная](https://innaglebova.github.io/alko-narkologia/article.html)
+- [Статьи](https://innaglebova.github.io/alko-narkologia/articles.html)
+- [Контакты](https://innaglebova.github.io/alko-narkologia/contacts.html)
+- [Врач детальный](https://innaglebova.github.io/alko-narkologia/doctor.html)
+- [Врачи](https://innaglebova.github.io/alko-narkologia/doctors.html)
+- [FAQ](https://innaglebova.github.io/alko-narkologia/faq.html)
+- [Галерея](https://innaglebova.github.io/alko-narkologia/gallery.html)
+- [Карта сайта](https://innaglebova.github.io/alko-narkologia/karta-sayta.html)
+- [Лицензии](https://innaglebova.github.io/alko-narkologia/licences.html)
+- [Ошибка 404](https://innaglebova.github.io/alko-narkologia/notfound.html)
+- [Прайс](https://innaglebova.github.io/alko-narkologia/price.html)
+- [Политика конфединциальности](https://innaglebova.github.io/alko-narkologia/privacy.html)
+- [Отзывы](https://innaglebova.github.io/alko-narkologia/reviews.html)
 
 ## 🛠 Технологии
 
@@ -108,9 +107,9 @@ npm run deploy
 ## 🎨 Особенности дизайна
 
 ### Адаптивность
+
 - Минимальное разрешение: 320px
 - Оптимизация для всех устройств
-
 
 ## 📱 Браузерная поддержка
 
@@ -137,8 +136,6 @@ npm run deploy
 - Кэширование ресурсов
 - SEO-оптимизация
 
-
-
 ## 🚀 Деплой на GitHub Pages
 
 ### Автоматический деплой
@@ -158,4 +155,3 @@ npm run deploy
 [telegram](https://t.me/innasaur)
 
 Создано с использованием современных технологий frontend разработки для медицинской сферы.
-
