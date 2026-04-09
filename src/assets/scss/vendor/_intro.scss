@@ -1,0 +1,256 @@
+/* intro */
+
+.intro {
+  overflow: hidden;
+
+  &__content {
+    position: relative;
+  }
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+    margin-bottom: 30px;
+  }
+
+  &__header-text {
+    font-size: 18px;
+    font-weight: 400;
+    color: $primary-color;
+    line-height: 1.4;
+  }
+
+  &__header-slogan {
+    font-size: 18px;
+    font-weight: 400;
+    color: $primary-color;
+    line-height: 1.4;
+    text-align: right;
+  }
+
+  &__title {
+    position: relative;
+    z-index: 0;
+    margin: 0;
+    margin-bottom: 60px;
+  }
+
+  &__cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 0 auto;
+    background: $primary-color;
+    border-radius: $border-radius-large;
+    padding: 30px;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  &__doctor {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    width: 633px;
+    height: auto;
+  }
+
+  &__doctor-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 20px;
+  }
+
+  &__card {
+    background: $tertiary-color;
+    border-radius: $border-radius-medium;
+    padding: 24px;
+    z-index: 4;
+    height: 100%;
+
+    &-wrap {
+      max-width: 500px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+
+  &__card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    gap: 15px;
+  }
+
+  &__card-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: $secondary-color;
+    line-height: 1.3;
+    margin: 0;
+    flex: 1;
+  }
+
+  &__card-icon {
+    width: 50px;
+    height: 50px;
+    background: $primary-color;
+    border-radius: $border-radius-small;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    img {
+      width: 22px;
+      height: 22px;
+      object-fit: cover;
+    }
+  }
+
+  &__card-text {
+    font-size: 16px;
+    font-weight: 400;
+    color: $secondary-color;
+    line-height: 1.5;
+    margin: 0;
+  }
+}
+
+/* intro media */
+
+@media (max-width: 1820px) {
+  .intro__cards {
+    margin-top: 300px;
+  }
+  .intro__doctor {
+    z-index: 2;
+    width: 50%;
+  }
+
+  .intro__cards {
+    & > * {
+      flex-basis: calc(50% - 5px);
+    }
+  }
+  .intro__card-wrap {
+    max-width: calc(50% - 5px);
+  }
+}
+
+@media (max-width: 1200px) {
+  .intro__doctor {
+    bottom: 200px;
+    z-index: 1;
+    width: 60%;
+  }
+
+  .intro__cards {
+    position: relative;
+    z-index: 3;
+  }
+}
+
+@media (max-width: 1024px) {
+  .intro {
+    padding: 60px 0;
+
+    &__header {
+      flex-direction: column;
+      gap: 20px;
+      text-align: start;
+      align-items: start;
+      margin-bottom: 40px;
+    }
+  }
+
+  .intro__doctor {
+    width: 70%;
+  }
+  .intro__cards {
+    border-radius: 20px;
+  }
+
+  .intro__card {
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 800px) {
+  .intro {
+    padding: 40px 0;
+  }
+
+  .intro__doctor {
+    width: 80%;
+    top: 0;
+    bottom: 0;
+  }
+
+  .intro__cards {
+    flex-wrap: wrap;
+    & > * {
+      flex-basis: 100%;
+    }
+  }
+
+  .intro__card-wrap {
+    max-width: 100%;
+    & > * {
+      flex-basis: 100%;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .intro__cards {
+    border-radius: $border-radius-small;
+  }
+
+  .intro__card {
+    border-radius: $border-radius-small;
+  }
+  .intro__doctor {
+    width: 100%;
+    top: 50px;
+  }
+  .intro__header {
+    gap: 5px;
+    margin-bottom: 10px;
+  }
+
+  .intro__header-slogan,
+  .intro__header-text {
+    font-size: 14px;
+  }
+
+  .intro__header-slogan {
+    text-align: start;
+  }
+  .intro__card-title {
+    font-size: 16px;
+  }
+  .intro__card-text {
+    font-size: 14px;
+  }
+  .intro__cards {
+    padding: 16px;
+  }
+  .intro__card {
+    padding: 16px;
+  }
+
+  .intro__card-icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+}

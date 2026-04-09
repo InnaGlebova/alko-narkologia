@@ -1,0 +1,154 @@
+/* offer */
+
+.offer {
+  &__header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  &__badge {
+    text-align: start;
+  }
+
+  &__title {
+    text-align: start;
+  }
+
+  &__inner {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: stretch;
+    max-width: 100%;
+    width: 100%;
+
+    & > * {
+      flex-basis: calc(25% - 7.5px);
+      width: calc(25% - 7.5px);
+    }
+  }
+
+  &__card {
+    border-radius: $border-radius-large;
+    background: $primary-background;
+    color: $secondary-color;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s linear;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 120px;
+    cursor: pointer;
+    &:hover {
+      background: $primary-gradient;
+      color: #fff;
+
+      .offer__card-picture {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .offer__card-hover-text {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    @media (max-width: 768px) {
+      &:hover {
+        background: $primary-background;
+        color: $secondary-color;
+
+        .offer__card-picture {
+          opacity: 1;
+          visibility: visible;
+        }
+
+        .offer__card-hover-text {
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+    }
+  }
+
+  &__card-picture {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    height: 50%;
+    width: calc(100% - 20px);
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    border-radius: $border-radius-large;
+
+    & img {
+      width: 100%;
+      max-height: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__card-title {
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  &__card-description {
+    max-height: 232px;
+  }
+}
+
+/* offer  media */
+
+@media (max-width: 1600px) {
+  .offer__inner {
+    flex-wrap: wrap;
+    & > * {
+      flex-basis: calc(50% - 5px);
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .offer__card-title {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .offer__card-title {
+    font-size: 18px;
+    order: 1;
+  }
+  .offer__card-description {
+    order: 2;
+  }
+  .offer__card {
+    gap: 10px;
+    padding: 20px;
+    border-radius: $border-radius-small;
+    height: fit-content;
+  }
+  .offer__inner {
+    & > * {
+      flex-basis: 100%;
+    }
+  }
+
+  .offer__card-picture {
+    position: static;
+    order: 3;
+    opacity: 1;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+}

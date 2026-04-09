@@ -1,0 +1,60 @@
+/* reviews-page */
+
+.reviews-page {
+
+    &__inner {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+
+        &>* {
+            flex-basis: calc(25% - 7.5px);
+        }
+
+    }
+
+    &__item {
+        border-radius: $border-radius-large;
+
+        & .reviews__bottom {
+            display: none;
+        }
+    }
+
+    &__btn {
+        margin: 0 auto;
+        max-width: fit-content;
+    }
+
+}
+
+/* reviews-page media */
+@media (max-width: 1300px) {
+    .reviews-page {
+        &__inner {
+            &>* {
+                flex-basis: calc(33.333% - 6.6667px);
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .reviews-page {
+        &__inner {
+            &>* {
+                flex-basis: calc(50% - 5px);
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .reviews-page {
+        &__inner {
+            &>* {
+                flex-basis: 100%;
+            }
+        }
+    }
+}

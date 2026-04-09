@@ -1,0 +1,149 @@
+/* advantages */
+
+.advantages {
+  margin: 80px 0;
+  background: $primary-background;
+
+  &__inner {
+    display: flex;
+    gap: 60px;
+    align-items: start;
+  }
+
+  &__content {
+    max-width: 600px;
+    width: 100%;
+  }
+
+  &__badge {
+    text-align: start;
+  }
+
+  &__title {
+    text-align: start;
+    margin-bottom: 40px;
+  }
+
+  &__description {
+    font-size: 18px;
+    & p {
+      margin-bottom: 20px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__blocks {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: stretch;
+    max-width: 1076px;
+    width: 100%;
+  }
+
+  &__item {
+    background: #ffffff;
+    padding: 24px;
+    border-radius: $border-radius-medium;
+    flex-basis: calc(33.333% - 6.66667px);
+    width: calc(33.333% - 6.66667px);
+    height: auto;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__picture {
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 50px;
+    max-height: 50px;
+    background: $primary-color;
+    border-radius: $border-radius-small;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    margin-bottom: 16px;
+
+    & img {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+    }
+  }
+  &__item-wrap {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 60px;
+  }
+
+  &__item-title {
+    font-size: 20px;
+    font-weight: 600;
+  }
+}
+
+/* advantages media */
+
+@media (max-width: 1750px) {
+  .advantages__inner {
+    flex-wrap: wrap;
+
+    & > * {
+      flex-basis: 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .advantages {
+    margin: 40px 0;
+  }
+  .advantages__blocks {
+    flex-wrap: wrap;
+    justify-content: center;
+
+    & > * {
+      flex-basis: calc(50% - 6.66667px);
+    }
+  }
+
+  .advantages__inner {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .advantages {
+    margin: 20px 0;
+  }
+  .advantages__blocks {
+    & > * {
+      flex-basis: 100%;
+    }
+  }
+
+  .advantages__picture {
+    max-height: 40px;
+    max-width: 40px;
+    min-height: 40px;
+    min-width: 40px;
+  }
+  .advantages__item-wrap {
+    margin-bottom: 20px;
+  }
+  .advantages__item-title {
+    font-size: 18px;
+  }
+
+  .advantages__inner {
+    gap: 10px;
+  }
+}

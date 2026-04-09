@@ -1,0 +1,170 @@
+/* guarantees */
+
+.guarantees {
+  padding: 80px 0;
+  margin: 80px 0;
+  background: $primary-background;
+
+  &__header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  &__badge {
+    margin-bottom: 30px;
+  }
+
+  &__title {
+    margin-bottom: 60px;
+  }
+
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 10px;
+
+    & > * {
+      flex-basis: calc(25% - 7.5px);
+      width: calc(25% - 7.5px);
+    }
+  }
+
+  &__card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: $border-radius-medium;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 180px;
+    height: auto;
+  }
+
+  &__card-wrap {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 50px;
+  }
+
+  &__picture {
+    width: 100%;
+    height: 100%;
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 50px;
+    max-height: 50px;
+    background: $primary-color;
+    border-radius: $border-radius-small;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    margin-bottom: 20px;
+
+    & img {
+      width: 20px;
+      height: 20px;
+      object-fit: cover;
+    }
+  }
+
+  &__card-title {
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  &__card-description {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+}
+
+// Адаптивность
+@media (max-width: 1600px) {
+  .guarantees {
+    padding: 60px 0;
+    margin: 60px 0;
+
+    &__header {
+      margin-bottom: 40px;
+    }
+
+    &__badge {
+      margin-bottom: 20px;
+    }
+
+    &__title {
+      margin-bottom: 40px;
+    }
+
+    &__grid {
+      justify-content: center;
+      & > * {
+        flex-basis: calc(50% - 5px);
+        width: calc(50% - 5px);
+      }
+    }
+
+    &__card {
+      padding: 20px;
+      border-radius: $border-radius-small;
+      gap: 100px;
+    }
+
+    &__card-wrap {
+      gap: 10px;
+    }
+
+    &__picture {
+      min-width: 40px;
+      min-height: 40px;
+
+      & img {
+        width: 20px;
+        height: 20px;
+        object-fit: cover;
+      }
+    }
+
+    &__card-title {
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    &__card-description {
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .guarantees {
+    &__header {
+      text-align: start;
+    }
+
+    &__grid {
+      & > * {
+        flex-basis: 100%;
+        width: 100%;
+      }
+    }
+
+    &__card {
+
+      gap: 50px;
+    }
+  }
+
+  .guarantees__card-title {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+}

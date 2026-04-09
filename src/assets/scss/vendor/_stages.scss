@@ -1,0 +1,113 @@
+/* stages */
+
+.stages {
+  margin: 80px 0;
+  background: $primary-background;
+
+  &__header {
+    margin-bottom: 60px;
+  }
+
+  &__card {
+    background: #ffffff;
+    border-radius: $border-radius-medium;
+    padding: 30px;
+    text-align: start;
+    position: relative;
+    height: auto;
+    overflow: hidden;
+  }
+
+  &__card-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 180px;
+  }
+
+  &__card-number {
+    position: absolute;
+    top: -26px;
+    left: -12px;
+    font-size: 205px;
+    font-weight: 700;
+    color: rgba($primary-color, 0.1);
+    line-height: 1;
+    z-index: 1;
+  }
+
+  &__card-picture {
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 50px;
+    max-height: 50px;
+    background: $primary-color;
+    border-radius: $border-radius-small;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    position: relative;
+    z-index: 2;
+
+    & img {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+    }
+  }
+
+  &__card-title {
+    font-size: 24px;
+    z-index: 2;
+  }
+
+  &__card-description {
+    z-index: 2;
+  }
+}
+
+.swiper.stages-swiper {
+  overflow: visible;
+}
+
+// Адаптивность
+
+@media (max-width: 1024px) {
+  .stages {
+    margin: 40px 0;
+  }
+
+  .stages__card {
+    padding: 30px;
+  }
+
+  .stages__card-wrap {
+    margin-bottom: 40px;
+    gap: 10px;
+  }
+
+  .stages__card-title {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .stages {
+    margin: 20px 0;
+  }
+
+  .stages__card-wrap {
+    margin-bottom: 30px;
+  }
+  .stages__card {
+    padding: 20px;
+  }
+
+
+  .stages__card-title {
+    font-size: 16px;
+  }
+}

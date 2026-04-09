@@ -1,0 +1,65 @@
+/* faq */
+
+.faqs__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-basis: calc(63% - 33px);
+}
+
+.faqs__main-inner {
+  display: flex;
+  gap: 66px;
+}
+
+.faqs__header {
+  flex-basis: calc(37% - 33px);
+
+  &>* {
+    text-align: start;
+  }
+}
+
+.faq__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.faqs__inner {
+
+  & .hide__item-title,
+  .theiaStickySidebar .hide__item-title {
+    background-color: white;
+  }
+}
+
+.faqs__text {
+  padding: 30px;
+  display: flex;
+  border-radius: 5px;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* faq media */
+@media (max-width: 1200px) {
+  .faqs__main-inner {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .faqs__header {
+    flex-basis: 100%;
+
+  }
+
+  .faqs__inner {
+
+    flex-basis: 100%;
+  }
+}
+
+@media (max-width: 951px) {}
