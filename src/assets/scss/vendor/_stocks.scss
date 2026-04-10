@@ -36,7 +36,7 @@
     max-height: 380px;
     min-height: 380px;
     height: 100%;
-    border-radius: $border-radius-large;
+    border-radius: 10px;
     overflow: hidden;
     position: relative;
     color: white;
@@ -75,7 +75,7 @@
     }
 
     &--first {
-      background: $primary-gradient;
+      background: $accent-color-700;
       position: relative;
 
       &:before {

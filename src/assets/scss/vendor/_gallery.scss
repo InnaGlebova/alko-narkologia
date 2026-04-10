@@ -1,7 +1,7 @@
 /* gallery */
 
 .gallery {
-  background: $primary-background;
+  background: $main-color-100;
   padding: 80px 0;
 
   &__badge {
@@ -63,12 +63,12 @@
 
 .mySwiper {
   margin-bottom: 0;
-  border-radius: $border-radius-medium;
+  border-radius: 10px;
   & .swiper-slide {
     opacity: 0.5;
     transition: opacity 0.3s linear;
     cursor: pointer;
-    border-radius: $border-radius-medium;
+    border-radius: 10px;
     overflow: hidden;
 
     &:hover {
@@ -88,14 +88,14 @@
 }
 
 .mySwiper2 {
-  border-radius: $border-radius-large;
+  border-radius: 10px;
 
   &.swiper {
     margin-bottom: 10px;
   }
   & .swiper-slide {
     width: 100%;
-    border-radius: $border-radius-large;
+    border-radius: 10px;
     overflow: hidden;
     & a {
       width: 100%;
@@ -125,7 +125,7 @@
 .stat__value {
   font-size: 40px;
   font-weight: 700;
-  color: $primary-color;
+  color: $main-color;
   line-height: 1;
   margin-bottom: 10px;
 
@@ -137,7 +137,7 @@
 
 .stat__label {
   font-size: 16px;
-  color: $secondary-color;
+  color: $accent-color;
   font-weight: 400;
 }
 
@@ -179,7 +179,7 @@
     & > * {
       flex-basis: 100%;
       gap: 20px;
-      border-radius: $border-radius-small;
+      border-radius: 10px;
     }
   }
 
@@ -188,9 +188,9 @@
   }
 
   .mySwiper2 {
-    border-radius: $border-radius-small;
+    border-radius: 10px;
     & .swiper-slide {
-      border-radius: $border-radius-small;
+      border-radius: 10px;
     }
   }
   .gallery__inner .gallery_swiper-btns {
@@ -210,9 +210,9 @@
   }
 
   .mySwiper {
-    border-radius: $border-radius-small;
+    border-radius: 10px;
     & .swiper-slide {
-      border-radius: $border-radius-small;
+      border-radius: 10px;
       & picture {
         max-height: 100px;
         & img {

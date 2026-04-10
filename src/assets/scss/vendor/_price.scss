@@ -9,7 +9,7 @@
   text-align: start;
 }
 .price__content {
-  color: $secondary-color;
+  color: $accent-color;
   gap: 10px;
   display: flex;
   flex-direction: column;
@@ -25,7 +25,7 @@
   & > tbody > tr {
     display: flex;
     width: 100%;
-    border-bottom: 1px solid rgba($primary-color, 0.3);
+    border-bottom: 1px solid rgba($main-color, 0.3);
 
     &:last-child {
       border-bottom: none;
@@ -45,7 +45,7 @@
 }
 
 .price__cost {
-  color: $primary-color;
+  color: $main-color;
   font-size: 16px;
   font-weight: 600;
   line-height: 1.4;
@@ -55,10 +55,10 @@
 
 .price__cost-btn {
   font-weight: 600;
-  color: $primary-color;
+  color: $main-color;
 
   &:hover {
-    color: $secondary-color;
+    color: $accent-color;
   }
 
 }
@@ -91,7 +91,7 @@
   .price__item {
     flex-wrap: wrap;
     gap: 10px;
-    border-bottom: 1px solid $primary-color;
+    border-bottom: 1px solid $main-color;
   }
 
   .price__cost, .price__btn {
@@ -117,8 +117,8 @@
 .payment-methods {
   margin-top: 20px;
   padding: 40px;
-  background: $primary-gradient;
-  border-radius: $border-radius-large;
+  background: $accent-color-700;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -145,7 +145,7 @@
     align-items: center;
     gap: 8px;
     padding: 10px;
-    border-radius: $border-radius-small;
+    border-radius: 10px;
     background-color: #ffffff3b;
     backdrop-filter: blur(10px);
     width: 90px;
@@ -189,13 +189,13 @@
 @media (max-width: 768px) {
   .payment-methods {
     flex-direction: column;
-    border-radius: $border-radius-small;
+    border-radius: 10px;
 gap: 10px;
     &__list {
       gap: 5px;
     }
     &__item {
-      border-radius: $border-radius-small;
+      border-radius: 10px;
       padding: 5px;
     }
   }

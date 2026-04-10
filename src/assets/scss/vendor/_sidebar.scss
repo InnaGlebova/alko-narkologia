@@ -12,9 +12,9 @@
 
   &__inner,
   & .theiaStickySidebar &__inner {
-    background-color: $primary-background;
+    background-color: $main-color-100;
     padding: 10px;
-    border-radius: $border-radius-medium;
+    border-radius: 10px;
   }
 }
 
@@ -45,7 +45,7 @@
   background: white;
   font-size: 18px;
   padding: 30px;
-  color: $secondary-color;
+  color: $accent-color;
   transition: opacity 0.3s linear;
 
   &::after,
@@ -68,7 +68,7 @@
 
   .sidebar .theiaStickySidebar .sidebar__inner,
   .sidebar__inner {
-    border-radius: $border-radius-medium;
+    border-radius: 10px;
   }
 
   .sidebar .theiaStickySidebar {
@@ -79,7 +79,7 @@
 
   .sidebar .theiaStickySidebar .sidebar__inner,
   .sidebar__inner {
-    border-radius: $border-radius-small;
+    border-radius: 10px;
   }
 
   

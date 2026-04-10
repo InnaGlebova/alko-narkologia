@@ -6,12 +6,12 @@
   gap: 30px;
 }
 .reviewer {
-  border-radius: $border-radius-large;
+  border-radius: 10px;
   overflow: hidden;
   transition: border 0.3s linear;
   border: 1px solid transparent;
   &:hover {
-    border-color: $primary-color;
+    border-color: $main-color;
   }
 }
 .reviewer__inner {
@@ -20,7 +20,7 @@
   align-items: start;
   justify-content: space-between;
   width: 100%;
-  background-color: $primary-background;
+  background-color: $main-color-100;
   padding: 40px;
 }
 
@@ -47,7 +47,7 @@
   height: 100%;
   max-width: 100px;
   max-height: 100px;
-  border-radius: $border-radius-small;
+  border-radius: 10px;
   background-color: white;
   overflow: hidden;
 
@@ -71,14 +71,14 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 1.4;
-  color: $primary-color;
+  color: $main-color;
   margin-bottom: 15px;
 }
 
 .reviewer__stage {
-  background-color: $primary-color;
+  background-color: $main-color;
   padding: 6px 20px;
-  border-radius: $border-radius-small;
+  border-radius: 10px;
   color: white;
 }
 
@@ -88,7 +88,7 @@
 
 @media (max-width: 1024px) {
   .reviewer {
-    border-radius: $border-radius-medium;
+    border-radius: 10px;
   }
   .reviewer__inner {
     padding: 30px;
@@ -100,7 +100,7 @@
 
 @media (max-width: 768px) {
   .reviewer {
-    border-radius: $border-radius-small;
+    border-radius: 10px;
   }
   .reviewer__inner {
     padding: 20px;

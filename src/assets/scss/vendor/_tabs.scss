@@ -34,7 +34,7 @@
 }
 
 .tabs__title {
-  color: $secondary-color;
+  color: $accent-color;
   font-size: 32px;
   font-weight: 600;
   line-height: 1.25;
@@ -49,9 +49,9 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  background-color: $primary-background;
+  background-color: $main-color-100;
   padding: 10px;
-  border-radius: $border-radius-large;
+  border-radius: 10px;
 }
 
 .one-line-tabs:not(.service-sidebar-tabs) .tab {
@@ -70,24 +70,24 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 90px;
-  color: $secondary-color;
+  color: $accent-color;
   background-color: transparent;
   text-align: start;
   font-weight: 600;
   line-height: 1;
   padding: 23px;
-  border-radius: $border-radius-medium;
+  border-radius: 10px;
   transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
   font-size: 18px;
 
   &:hover {
     color: #fff;
-    background: $primary-gradient;
+    background: $accent-color-700;
   }
 
   &.active {
     color: #fff;
-    background: $primary-gradient;
+    background: $accent-color-700;
   }
 }
 
@@ -119,8 +119,8 @@
     font-size: 14px;
 
     &:before {
-      border-right: 3px solid $primary-color;
-      border-top: 3px solid $primary-color;
+      border-right: 3px solid $main-color;
+      border-top: 3px solid $main-color;
       content: "";
       display: block;
       height: 7px;
@@ -148,8 +148,8 @@
     gap: 20px;
     font-size: 12px;
     width: 100%;
-    color: $primary-color;
-    background-color: $primary-background;
+    color: $main-color;
+    background-color: $main-color-100;
   }
 
   .tabs__container:not(.service-sidebar-tabs .tabs__container) {
@@ -180,7 +180,7 @@
   .tabs__wrapper:not(.service-sidebar-tabs .tabs__wrapper) {
     display: flex;
     flex-direction: column;
-    background-color: $primary-background;
+    background-color: $main-color-100;
     width: 100%;
     border-radius: 5px;
     padding: 2px;
@@ -193,7 +193,7 @@
     padding: 15px 18px;
     border-radius: 5px;
     background: #fff;
-    color: $primary-color;
+    color: $main-color;
     font-size: 12px;
     font-weight: 600;
     line-height: 1;
@@ -205,14 +205,14 @@
     }
 
     &.active {
-      background-color: $primary-color;
+      background-color: $main-color;
       color: #fff;
     }
   }
 
   .tabs:not(.service-sidebar-tabs .tabs) {
     border-radius: 5px;
-    background-color: $primary-background;
+    background-color: $main-color-100;
     margin-bottom: 40px;
   }
 

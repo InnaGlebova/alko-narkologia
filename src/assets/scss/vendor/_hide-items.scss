@@ -10,9 +10,9 @@
 
 .hide__item,
 .theiaStickySidebar .hide__item {
-  border-radius: $border-radius-small;
+  border-radius: 10px;
   position: relative;
-  border-radius: $border-radius-medium;
+  border-radius: 10px;
   background-color: #fff;
   width: 100%;
   flex-direction: column;
@@ -23,18 +23,18 @@
     position: absolute;
     width: 60px;
     height: 60px;
-    background-color: $primary-color;
+    background-color: $main-color;
     right: 15px;
     top: 50%;
     transform: translateY(-50%);
-    border-radius: $border-radius-small;
+    border-radius: 10px;
     z-index: 1;
     pointer-events: none;
     opacity: 1;
   }
 
   &.active {
-    border: 1px solid rgba($primary-color, 0.3);
+    border: 1px solid rgba($main-color, 0.3);
 
     &:before {
       background-color: white;
@@ -45,15 +45,15 @@
 
 .hide__item-title,
 .theiaStickySidebar .hide__item-title {
-  color: $secondary-color;
+  color: $accent-color;
   font-size: 24px;
   font-weight: 600;
   line-height: 1.4;
   text-align: left;
   padding: 36px;
   padding-right: 70px;
-  border-radius: $border-radius-small;
-  background-color: $primary-background;
+  border-radius: 10px;
+  background-color: $main-color-100;
   cursor: pointer;
   display: flex;
   gap: 10px;
@@ -88,7 +88,7 @@
   }
 
   &.active {
-    background-color: $primary-color;
+    background-color: $main-color;
     color: white;
 
     &::after {
@@ -99,7 +99,7 @@
   }
 
   &:hover {
-    background-color: rgba($primary-color, 0.3);
+    background-color: rgba($main-color, 0.3);
   }
 }
 
@@ -142,16 +142,16 @@
 }
 .hide-item__item,
 .theiaStickySidebar .hide-item__item {
-  border-radius: $border-radius-small;
+  border-radius: 10px;
   width: 100%;
   & > a {
     padding: 21px 30px;
-    border-radius: $border-radius-small;
+    border-radius: 10px;
     width: 100%;
     display: block;
 
     &:hover {
-      background-color: rgba($primary-color, 0.1);
+      background-color: rgba($main-color, 0.1);
     }
   }
 }
@@ -176,7 +176,7 @@
     &:after {
       height: 10px;
       right: 16px;
-      background-color: $primary-color;
+      background-color: $main-color;
     }
 
     &.active {
@@ -202,7 +202,7 @@
     &:before {
       width: 10px;
       right: 27px;
-      background-color: $primary-color;
+      background-color: $main-color;
       
     }
   }
@@ -227,7 +227,7 @@
 @media (max-width: 768px) {
   .hide__item,
   .theiaStickySidebar .hide__item {
-    border-radius: $border-radius-small;
+    border-radius: 10px;
     &:before {
       display: none;
     }

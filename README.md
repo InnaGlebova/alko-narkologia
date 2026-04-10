@@ -4,7 +4,7 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/InnaGlebova/alko-narkologia)
 ![GitHub repo size](https://img.shields.io/github/repo-size/InnaGlebova/alko-narkologia)
 
-Многостраничный адаптивный сайт медицинской клиники "АлкоНаркология", специализирующейся на лечении алкоголизма и наркомании в Астрахани.
+Многостраничный адаптивный сайт медицинской клиники "АлкоНаркология", специализирующейся на лечении алкоголизма и наркомании в Москве.
 
 ## 🏥 О проекте
 

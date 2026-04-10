@@ -2,9 +2,9 @@
 .doctor-detail {
   &-intro {
     &__main-inner {
-      background-color: $primary-background;
+      background-color: $main-color-100;
       padding: 60px;
-      border-radius: $border-radius-large;
+      border-radius: 10px;
       display: flex;
       flex-direction: column;
       position: relative;
@@ -119,7 +119,7 @@
 
   &__item {
     background-color: #ffffff;
-    border-radius: $border-radius-medium;
+    border-radius: 10px;
     padding: 16px 20px;
     display: flex;
     align-items: center;
@@ -129,8 +129,8 @@
   }
 
   &__icon {
-    background-color: $primary-color;
-    border-radius: $border-radius-small;
+    background-color: $main-color;
+    border-radius: 10px;
     width: 48px;
     height: 48px;
     display: flex;
@@ -193,8 +193,8 @@
   }
 
   &__item {
-    border: 1px solid rgba($primary-color, 0.5);
-    border-radius: $border-radius-medium;
+    border: 1px solid rgba($main-color, 0.5);
+    border-radius: 10px;
     padding: 24px;
     flex-basis: calc(25% - 7.6px);
     position: relative;
@@ -213,9 +213,9 @@
   }
 
   &__year {
-    background: $primary-background;
-    color: $secondary-color;
-    border-radius: $border-radius-small;
+    background: $main-color-100;
+    color: $accent-color;
+    border-radius: 10px;
     padding: 12px;
     font-weight: 700;
     line-height: 1;
@@ -224,7 +224,7 @@
   }
 
   &__text {
-    color: $secondary-color;
+    color: $accent-color;
   }
 
   @media (max-width: 992px) {
@@ -261,11 +261,11 @@
 
   &__day {
     background-color: #ffffff;
-    border-radius: $border-radius-medium;
+    border-radius: 10px;
     flex-basis: calc(14.28% - 8.57px);
     padding: 20px 16px;
     text-align: center;
-    border: 1px solid rgba($primary-color, 0.5);
+    border: 1px solid rgba($main-color, 0.5);
     font-weight: 600;
   }
 
@@ -277,13 +277,13 @@
 
   &__time {
     font-weight: 600;
-    color: $primary-color;
+    color: $main-color;
     line-height: 1.3;
   }
 
   &__day-off {
     font-weight: 600;
-    color: $primary-color;
+    color: $main-color;
     line-height: 1.3;
   }
 }
@@ -353,8 +353,8 @@
         min-height: 463px;
         height: 100%;
         max-width: 300px;
-        border-radius: $border-radius-medium;
-        background: rgba($primary-color, 0.1);
+        border-radius: 10px;
+        background: rgba($main-color, 0.1);
         order: 3;
       }
 
@@ -423,7 +423,7 @@
   .doctor-detail {
     &-intro {
       &__main-inner {
-        border-radius: $border-radius-small;
+        border-radius: 10px;
         padding: 20px;
       }
 
@@ -433,7 +433,7 @@
       }
 
       &__picture-wrap {
-        border-radius: $border-radius-small;
+        border-radius: 10px;
       }
 
     }
@@ -455,7 +455,7 @@
       &__item {
         padding: 10px 16px;
         max-width: 100%;
-        border-radius: $border-radius-small;
+        border-radius: 10px;
       }
 
       &__icon {
@@ -477,12 +477,12 @@
   }
 
   .doctor-detail-education__year {
-    border-radius: $border-radius-small;
+    border-radius: 10px;
     font-size: 16px;
   }
 
   .doctor-detail-education__item {
-    border-radius: $border-radius-small;
+    border-radius: 10px;
     padding: 20px;
   }
 

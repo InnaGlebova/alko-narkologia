@@ -2,7 +2,7 @@
 
 .stages {
   margin: 80px 0;
-  background: $primary-background;
+  background: $main-color-100;
 
   &__header {
     margin-bottom: 60px;
@@ -10,7 +10,7 @@
 
   &__card {
     background: #ffffff;
-    border-radius: $border-radius-medium;
+    border-radius: 10px;
     padding: 30px;
     text-align: start;
     position: relative;
@@ -33,7 +33,7 @@
     left: -12px;
     font-size: 205px;
     font-weight: 700;
-    color: rgba($primary-color, 0.1);
+    color: rgba($main-color, 0.1);
     line-height: 1;
     z-index: 1;
   }
@@ -43,8 +43,8 @@
     min-height: 50px;
     max-width: 50px;
     max-height: 50px;
-    background: $primary-color;
-    border-radius: $border-radius-small;
+    background: $main-color;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;

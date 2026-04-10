@@ -1,8 +1,8 @@
 /* literature */
 
 .literature {
-  background-color: $primary-background;
-  border-radius: $border-radius-large;
+  background-color: $main-color-100;
+  border-radius: 10px;
   padding: 40px;
 
   &__title {
@@ -19,7 +19,7 @@
       padding-left: 25px;
       position: relative;
       &::before {
-        background: $primary-color;
+        background: $main-color;
         border-radius: 50%;
         content: "";
         display: block;

@@ -36,6 +36,7 @@
     "gulp": "^4.0.2",
     "gulp-imagemin": "^7.1.0",
     "gulp-postcss": "^9.0.1",
+    "merge-stream": "^2.0.0",
     "imagemin-mozjpeg": "^10.0.0",
     "imagemin-pngquant": "^10.0.0",
     "postcss": "^8.4.24",

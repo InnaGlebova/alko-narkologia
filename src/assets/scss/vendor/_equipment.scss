@@ -37,7 +37,7 @@
     max-height: 380px;
     min-height: 380px;
     height: 100%;
-    border-radius: $border-radius-large;
+    border-radius: 10px;
     overflow: hidden;
     position: relative;
     color: white;
@@ -68,7 +68,7 @@
     }
 
     &--first {
-      background: $primary-gradient;
+      background: $accent-color-700;
       position: relative;
       display: flex;
       align-items: center;
@@ -97,7 +97,7 @@
         top: 22px;
         left: 588px;
         pointer-events: none;
-        border-radius: $border-radius-large;
+        border-radius: 10px;
         overflow: hidden;
 
         & img {
@@ -122,7 +122,7 @@
       z-index: 1;
       pointer-events: none;
       max-height: 237px;
-      border-radius: $border-radius-large;
+      border-radius: 10px;
       overflow: hidden;
 
       & img {
@@ -134,8 +134,8 @@
   }
 
   &__card:not(.equipment__card--first) {
-    background-color: $primary-background;
-    color: $secondary-color;
+    background-color: $main-color-100;
+    color: $accent-color;
   }
 
   &__card-content {
@@ -251,12 +251,12 @@
 @media (max-width: 768px) {
   .equipment {
     .equipment__card {
-      border-radius: $border-radius-small;
+      border-radius: 10px;
     }
 
     .equipment__card picture,
     .equipment__card--first picture {
-      border-radius: $border-radius-small;
+      border-radius: 10px;
 
     }
   }

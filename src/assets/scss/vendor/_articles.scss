@@ -21,7 +21,7 @@
 .articles__item {
   display: flex;
   flex-direction: column;
-  background-color: $primary-background;
+  background-color: $main-color-100;
   padding: 10px;
   border-radius: 20px;
   transition: border 0.3s linear;
@@ -29,11 +29,11 @@
   justify-content: space-between;
   align-items: flex-start;
   height: auto;
-  color: $secondary-color;
+  color: $accent-color;
 
   &:hover {
-    border-color: $primary-color;
-    color: $secondary-color;
+    border-color: $main-color;
+    color: $accent-color;
   }
 }
 
@@ -65,7 +65,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: $border-radius-medium;
+    border-radius: 10px;
   }
 }
 

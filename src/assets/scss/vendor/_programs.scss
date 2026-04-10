@@ -40,20 +40,20 @@
   }
 
   &__plan:not(.programs__descr) {
-    background-color: $primary-background;
+    background-color: $main-color-100;
     padding: 10px 0;
-    border: 1px solid rgba($primary-color, 0.7);
-    border-radius: $border-radius-large;
+    border: 1px solid rgba($main-color, 0.7);
+    border-radius: 10px;
     flex-basis: calc(19% - 8px);
     width: calc(19% - 8px);
     min-width: 250px;
-    color: $secondary-color;
+    color: $accent-color;
     transition: all 0.2s linear;
     overflow: hidden;
 
     &:hover {
       color: white;
-      background: rgba($primary-color, 0.8);
+      background: rgba($main-color, 0.8);
 
       & svg {
         & path {
@@ -63,12 +63,12 @@
 
       & .programs__plan-header {
         background-color: white;
-        color: $secondary-color;
+        color: $accent-color;
       }
 
       & .programs__cell {
         &:nth-child(odd) {
-          background-color: $primary-color;
+          background-color: $main-color;
         }
       }
     }
@@ -86,8 +86,8 @@
   &__plan-header {
     padding: 24px 20px;
     text-align: center;
-    background-color: rgba($primary-color, 0.6);
-    border-radius: $border-radius-large;
+    background-color: rgba($main-color, 0.6);
+    border-radius: 10px;
     color: white;
     font-weight: 700;
     font-size: 18px;
@@ -115,8 +115,8 @@
   &__feature {
     padding: 14px;
     width: 100%;
-    background-color: $primary-background;
-    border-radius: $border-radius-medium;
+    background-color: $main-color-100;
+    border-radius: 10px;
     height: 82px;
   }
 
@@ -133,8 +133,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: $primary-color;
-    border-radius: $border-radius-medium;
+    background-color: $main-color;
+    border-radius: 10px;
     width: 56px;
     height: 56px;
 
@@ -146,7 +146,7 @@
 
   &__feature-text {
     font-weight: 500;
-    color: $secondary-color;
+    color: $accent-color;
     font-size: 16px;
   }
 
@@ -180,7 +180,7 @@
   &__btn {
     padding: 20px;
     border: none;
-    background-color: $primary-color;
+    background-color: $main-color;
     color: white;
     font-weight: 600;
     font-size: 16px;
@@ -211,7 +211,7 @@
 
 @media (max-width: 1024px) {
   .programs__inner {
-    border-radius: $border-radius-medium;
+    border-radius: 10px;
   }
   .programs__header {
     margin-bottom: 20px;
@@ -222,7 +222,7 @@
   .programs {
 
     &__inner {
-      border-radius: $border-radius-small;
+      border-radius: 10px;
     }
 
     &__header {
@@ -248,7 +248,7 @@
       width: 210px;
       max-width: 210px;
       padding: 15px 10px;
-      border-radius: $border-radius-small;
+      border-radius: 10px;
     }
 
     .programs__descr {
@@ -279,7 +279,7 @@
     &__plan-header {
       padding: 20px 10px;
       font-size: 16px;
-      border-radius: $border-radius-small;
+      border-radius: 10px;
     }
 
     &__plan-title {
@@ -304,7 +304,7 @@
     &__feature-icon {
       height: 40px;
       width: 40px;
-      border-radius: $border-radius-small;
+      border-radius: 10px;
     }
 
 

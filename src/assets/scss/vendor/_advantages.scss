@@ -2,7 +2,7 @@
 
 .advantages {
   margin: 80px 0;
-  background: $primary-background;
+  background: $main-color-100;
 
   &__inner {
     display: flex;
@@ -47,7 +47,7 @@
   &__item {
     background: #ffffff;
     padding: 24px;
-    border-radius: $border-radius-medium;
+    border-radius: 10px;
     flex-basis: calc(33.333% - 6.66667px);
     width: calc(33.333% - 6.66667px);
     height: auto;
@@ -61,8 +61,8 @@
     min-height: 50px;
     max-width: 50px;
     max-height: 50px;
-    background: $primary-color;
-    border-radius: $border-radius-small;
+    background: $main-color;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;

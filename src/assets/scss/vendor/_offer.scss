@@ -29,9 +29,9 @@
   }
 
   &__card {
-    border-radius: $border-radius-large;
-    background: $primary-background;
-    color: $secondary-color;
+    border-radius: 10px;
+    background: $main-color-100;
+    color: $accent-color;
     overflow: hidden;
     position: relative;
     transition: all 0.3s linear;
@@ -42,7 +42,7 @@
     gap: 120px;
     cursor: pointer;
     &:hover {
-      background: $primary-gradient;
+      background: $accent-color-700;
       color: #fff;
 
       .offer__card-picture {
@@ -58,8 +58,8 @@
 
     @media (max-width: 768px) {
       &:hover {
-        background: $primary-background;
-        color: $secondary-color;
+        background: $main-color-100;
+        color: $accent-color;
 
         .offer__card-picture {
           opacity: 1;
@@ -85,7 +85,7 @@
     visibility: visible;
     transition: all 0.3s ease;
     overflow: hidden;
-    border-radius: $border-radius-large;
+    border-radius: 10px;
 
     & img {
       width: 100%;
@@ -133,7 +133,7 @@
   .offer__card {
     gap: 10px;
     padding: 20px;
-    border-radius: $border-radius-small;
+    border-radius: 10px;
     height: fit-content;
   }
   .offer__inner {

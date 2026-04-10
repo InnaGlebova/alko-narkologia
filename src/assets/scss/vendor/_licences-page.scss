@@ -10,7 +10,7 @@
     &__item {
         flex-basis: calc(25% - 7.5px);
         height: auto;
-        border-radius: $border-radius-medium;
+        border-radius: 10px;
         overflow: hidden;
         position: relative;
     }
@@ -20,8 +20,8 @@
         bottom: 10px;
         right: 10px;
         left: 10px;
-        background-color: $primary-background;
-        border-radius: $border-radius-medium;
+        background-color: $main-color-100;
+        border-radius: 10px;
         padding: 24px 22px;
         font-size: 16px;
     }
@@ -37,7 +37,7 @@
         bottom: 0;
         left: 0;
         position: absolute;
-        background: $primary-color;
+        background: $main-color;
         opacity: 0;
         z-index: 2;
         transition: opacity .3s linear;
@@ -87,7 +87,7 @@
             flex-basis: calc(50% - 5px);
         }
         &__descr {
-            border-radius: $border-radius-medium;
+            border-radius: 10px;
             padding: 20;
             font-size: 14px;
         }
@@ -101,7 +101,7 @@
         }
 
         &__descr {
-            border-radius: $border-radius-small;
+            border-radius: 10px;
         }
     }
 }

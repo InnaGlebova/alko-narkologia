@@ -29,9 +29,9 @@
   }
 
   &__info-block {
-    background: $primary-background;
+    background: $main-color-100;
     padding: 40px;
-    border-radius: $border-radius-large;
+    border-radius: 10px;
     position: relative;
     flex-basis: calc(90% - 5px);
     overflow: hidden;
@@ -58,7 +58,7 @@
       left: 0;
       width: 30%;
       height: 1px;
-      background-color: rgba($primary-color, 0.3);
+      background-color: rgba($main-color, 0.3);
     }
   }
 
@@ -74,22 +74,22 @@
     gap: 8px;
     margin-bottom: 69px;
     text-decoration: none;
-    color: $primary-color;
+    color: $main-color;
 
     svg {
       flex-shrink: 0;
       path {
         transition: fill 0.3s linear;
-        fill: $primary-color;
+        fill: $main-color;
       }
     }
 
     &:hover {
-      color: $secondary-color;
+      color: $accent-color;
 
       & svg {
         path {
-          fill: $secondary-color;
+          fill: $accent-color;
         }
       }
     }
@@ -116,9 +116,9 @@
     justify-content: center;
     align-items: center;
     gap: 30px;
-    background: $primary-gradient;
+    background: $accent-color-700;
     padding: 30px;
-    border-radius: $border-radius-large;
+    border-radius: 10px;
     text-align: center;
     color: #ffffff;
     height: auto;
@@ -134,7 +134,7 @@
     &-value {
       position: absolute;
       font-size: 54px;
-      color: $primary-color;
+      color: $main-color;
       font-weight: 700;
       top: 50%;
       left: 50%;

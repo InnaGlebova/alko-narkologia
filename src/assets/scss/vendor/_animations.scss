@@ -226,12 +226,12 @@
 	70% {
 	  fill: transparent;
 	  stroke-dashoffset: 0;
-	  stroke: $secondary-color;
+	  stroke: $accent-color;
 	}
   
 	100% {
 	  stroke-dashoffset: 0;
-	  fill: $secondary-color;
+	  fill: $accent-color;
 	  stroke: transparent;
 	}
   }

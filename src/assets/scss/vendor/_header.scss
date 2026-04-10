@@ -3,26 +3,11 @@
 .header {
   position: relative;
   z-index: 101;
-  background-color: #ffffff;
-}
-
-.header__badsee {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-
-  &::after {
-    display: block;
-    content: "";
-    flex-shrink: 0;
-    width: 18px;
-    height: 18px;
-    background: url("../img/icons/badsee.svg") center center no-repeat;
-  }
 }
 
 .header__top {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
+  padding: 16px 0;
 }
 
 .header__top-inner {
@@ -31,15 +16,9 @@
   align-items: center;
 }
 
-.hedaer__top-nav {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
 .header__top-nav-list {
   display: flex;
-  gap: 10px;
+  gap: 20px;
   align-items: center;
 }
 
@@ -48,20 +27,105 @@
   gap: 10px;
   align-items: center;
 }
-
 .header__center-inner {
   display: flex;
   justify-content: space-between;
   gap: 10px;
   align-items: center;
+  padding: 25px 0;
+  border-bottom: 1px solid $black-color-100;
 }
 
+.header__phone-picture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 52px;
+  height: 52px;
+  padding: 16px;
+  border-radius: 5px;
+  background-color: $main-color-800;
+  transition: background-color 0.3s linear;
+  &:hover {
+    background-color: $accent-color;
+  }
+}
+
+.header__phone-inner {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header__phone-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  & a {
+    font-size: 20px;
+    font-weight: 600;
+    color: $black-color;
+    text-decoration: none;
+  }
+
+  & span {
+    font-size: 16px;
+    font-weight: 400;
+    color: $accent-color-800;
+  }
+}
+.header__social-btns {
+  display: flex;
+  gap: 12px;
+}
+
+.header__social-btn {
+  &.header__social-wa {
+    background-color: #1BD741;
+  }
+  &.header__social-tg {
+    background-color: #61A8DE;
+  }
+  width: 52px;
+  height: 52px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s linear, border-color 0.3s linear;
+  border: 1px solid transparent;
+  &:hover {
+    border-color: white;
+  }
+}
+
+.header__search-btn {
+  background-color: $accent-color-800;
+  width: 52px;
+  height: 52px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s linear, border-color 0.3s linear;
+  border: 1px solid transparent;
+  &:hover {
+    background-color: $main-color-800;
+  }
+}
+
+.header__center-wrapper {
+  display: flex;
+  gap: 80px;
+  align-items: center;
+}
 .header__social-btns {
   display: flex;
 }
 
 .header__bottom {
-  padding: 16px 0;
+  padding: 25px 0;
 }
 
 .header__inner {
@@ -79,23 +143,11 @@
 
 .header__location-picture {
   display: flex;
-  max-width: 36px;
-  width: 100%;
-  min-width: 36px;
-  max-height: 36px;
-  height: 100%;
-  min-height: 36px;
-  border-radius: 100%;
   justify-content: center;
   align-items: center;
-  background-color: $primary-background;
 
-  &>img {
-    min-width: 14px;
-    max-width: 14px;
+  & > img {
     width: 100%;
-    min-height: 14px;
-    max-height: 14px;
     height: 100%;
     object-fit: cover;
   }
@@ -104,27 +156,98 @@
 .header__location-btn {
   text-align: left;
   text-decoration: underline;
-  color: $secondary-color;
-  font-size: 14px;
-  margin-bottom: 5px;
+  color: $accent-color;
 
   &:hover {
-    color: $primary-color;
+    color: $main-color;
+  }
+}
+.header__badsee {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  transition: background-color 0.3s linear;
+
+  & svg {
+    transition: fill 0.3s linear;
+    path {
+      transition: fill 0.3s linear;
+    }
+  }
+
+  &:hover {
+    background-color: $main-color;
+
+    & svg {
+      path {
+        fill: white;
+      }
+    }
+  }
+}
+.header__location-text {
+  font-weight: 500;
+  font-size: 14px;
+  padding-right: 10px;
+  margin-right: 10px;
+  border-right: 1px solid #f2f5f7;
+}
+
+.header__location-text span {
+  color: #0f172a;
+}
+
+.header__brigade {
+  font-size: 14px;
+  font-weight: 500;
+  color: #0f172a;
+  position: relative;
+  padding-left: 20px;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: #ff5722;
+    border-radius: 50%;
+    animation: headerBrigadePulse 1.6s ease-in-out infinite;
+    will-change: transform, box-shadow;
   }
 }
 
-.header__location-text {
-  font-weight: 500;
+.header__brigade span {
+  color: $accent-color-800;
 }
 
-.header__location-small {
-  color: #001b2179;
-  font-size: 12px;
+@keyframes headerBrigadePulse {
+  0%,
+  100% {
+    transform: translateY(-50%) scale(1);
+    box-shadow: 0 0 0 0 rgba($accent-color-800, 0);
+  }
+  50% {
+    transform: translateY(-50%) scale(1.25);
+    box-shadow: 0 0 0 6px rgba($accent-color-800, 0.22);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header__brigade::before {
+    animation: none;
+  }
 }
 
 .header__btns {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   align-items: center;
 }
 
@@ -136,7 +259,7 @@
   position: relative;
 
   &.active {
-    &>.header__nav-btn {
+    & > .header__nav-btn {
       transform: rotate(-135deg);
     }
   }
@@ -148,8 +271,8 @@
   width: 7px;
   height: 7px;
   margin-bottom: 4px;
-  border-bottom: 2px solid $primary-color;
-  border-right: 2px solid $primary-color;
+  border-bottom: 2px solid $main-color;
+  border-right: 2px solid $main-color;
   transform: rotate(45deg);
   transition: transform 0.25s linear;
 }
@@ -170,7 +293,9 @@
 .header-top {
   background-color: #e8f1fa;
   padding: 10px 0;
-  transition: height 0.4s linear, padding 0.4s linear;
+  transition:
+    height 0.4s linear,
+    padding 0.4s linear;
   overflow: hidden;
 }
 
@@ -225,9 +350,7 @@
   align-items: center;
   position: relative;
   z-index: 50;
-  background-color: $primary-background;
-  padding: 10px;
-  border-radius: $border-radius-large;
+  width: 100%;
 }
 
 .header__link {
@@ -235,7 +358,7 @@
 }
 
 .header__link:hover {
-  color: $primary-color;
+  color: $main-color;
 }
 
 .header__service-btn {
@@ -244,11 +367,13 @@
   align-items: center;
   padding: 12px 15px;
   position: relative;
-  padding-left: 28px;
-  border-radius: $border-radius-large;
+  padding-right: 35px;
 
   &:hover {
-    background-color: white;
+    color: $accent-color;
+    &::after {
+      filter: brightness(0) saturate(100%) invert(48%) sepia(91%) saturate(3682%) hue-rotate(347deg) brightness(102%) contrast(101%);
+    }
   }
 }
 
@@ -256,19 +381,21 @@
   display: block;
   align-items: center;
   content: "";
-  background: url("../img/icons/grid-icon.svg") center center no-repeat;
-  width: 10px;
-  height: 10px;
-  left: 12px;
+  background: url("../img/icons/arrow.svg") center center no-repeat;
+  width: 12px;
+  height: 7px;
+  right: 12px;
   position: absolute;
+  transition: transform 0.3s linear;
 }
 
 .header__service-btn.active {
-  background-color: white;
+  color: $accent-color;
 }
 
 .header__service-btn.active::after {
-  transform: rotate(-45deg) scale(1, -1);
+  transform: rotate(180deg);
+  filter: brightness(0) saturate(100%) invert(48%) sepia(91%) saturate(3682%) hue-rotate(347deg) brightness(102%) contrast(101%);
 }
 
 .header__list ul {
@@ -283,8 +410,10 @@
 
 .header__nav-item .header__link {
   padding: 12px 15px;
-  border-radius: $border-radius-large;
-  transition: background-color 0.3s linear, color 0.3s linear;
+  border-radius: 10px;
+  transition:
+    background-color 0.3s linear,
+    color 0.3s linear;
   display: flex;
 
   &:hover {
@@ -331,19 +460,19 @@
 }
 
 .header-contacts__item-wrap {
-  background-color: $primary-background;
+  background-color: $main-color-100;
   padding: 20px 16px;
 }
 
 .header-contacts__item {
-  border-right: 2px solid rgba($primary-color, 0.5);
+  border-right: 2px solid rgba($main-color, 0.5);
   display: flex;
   gap: 40px;
   flex-direction: column;
 }
 
 .header-contacts__title {
-  color: rgba($secondary-color, 0.7);
+  color: rgba($accent-color, 0.7);
 }
 
 .header-contacts {
@@ -353,14 +482,14 @@
 
 .header-contacts__value {
   font-size: 18px;
-  color: $primary-color;
+  color: $main-color;
   font-weight: 700;
 }
 
 .header__social {
   & .social {
     &__link {
-      background-color: $primary-color;
+      background-color: $main-color;
 
       & picture {
         & img {
@@ -369,7 +498,7 @@
       }
 
       &:hover {
-        background-color: $secondary-color;
+        background-color: $accent-color;
       }
     }
   }
@@ -389,7 +518,7 @@
   .header__service {
     position: absolute;
     border-radius: 6px;
-    top: 140%;
+    top: 160%;
     width: 100%;
     max-width: 930px;
     left: 0;
@@ -399,11 +528,14 @@
     display: flex;
     color: #001b21;
     font-size: 16px;
-    transition: opacity 0.3s linear,
+    transition:
+      opacity 0.3s linear,
       -webkit-transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
-    transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1),
+    transition:
+      transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1),
       opacity 0.3s linear;
-    transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1),
+    transition:
+      transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1),
       opacity 0.3s linear,
       -webkit-transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
     pointer-events: none;
@@ -422,8 +554,8 @@
     display: -ms-flexbox;
     display: flex;
     flex-direction: column;
-    background-color: $primary-background;
-    border-radius: $border-radius-large;
+    background-color: white;
+    border-radius: 5px;
     padding: 5px;
     width: 100%;
     max-width: 310px;
@@ -432,26 +564,26 @@
     position: relative;
   }
 
-  .header__service-tabbs>li {
+  .header__service-tabbs > li {
     padding: 10px 30px 10px 10px;
     display: flex;
     gap: 10px;
     align-items: center;
-    border-radius: $border-radius-large;
+    border-radius: 10px;
     transition: background 0.3s linear;
     position: relative;
   }
 
-  .header__service-tabbs>li:hover {
+  .header__service-tabbs > li:hover {
     background: white;
-    color: $primary-color;
+    color: $main-color;
   }
 
-  .header__service-tabbs>li:hover .header__tabb::after {
+  .header__service-tabbs > li:hover .header__tabb::after {
     transform: rotate(-135deg) scaleY(-1);
   }
 
-  .header__service-tabbs>li:hover .header__service-item {
+  .header__service-tabbs > li:hover .header__service-item {
     opacity: 1;
     pointer-events: all;
     height: fit-content;
@@ -466,20 +598,20 @@
   .header__list-link a {
     padding: 10px 30px 10px 10px;
     width: 100%;
-    border-radius: $border-radius-large;
+    border-radius: 10px;
   }
 
   .header__list-link a:hover {
     background-color: #fff;
-    color: $primary-color;
+    color: $main-color;
   }
 
   .header__service-item {
     position: absolute;
-    border-radius: $border-radius-large;
+    border-radius: 10px;
     padding: 5px;
     display: flex;
-    background-color: $primary-background;
+    background-color: $main-color-100;
     opacity: 0;
     pointer-events: none;
     right: 0;
@@ -540,7 +672,9 @@
     gap: 20px;
     opacity: 0;
     transform: translateX(100%);
-    transition: opacity 0.3s linear, transform 0.3s linear;
+    transition:
+      opacity 0.3s linear,
+      transform 0.3s linear;
   }
 
   .header__wrapper.active {
@@ -553,7 +687,9 @@
     max-height: 0;
     opacity: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    transition:
+      max-height 0.3s ease-in-out,
+      opacity 0.3s ease-in-out;
   }
 
   .header__service.active {
@@ -566,7 +702,7 @@
   }
 
   .header-mobile {
-    background-color: $primary-background;
+    background-color: $main-color-100;
   }
 
   .header-mobile-inner {
@@ -597,7 +733,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: $primary-color;
+    background-color: $main-color;
     padding: 10px;
     position: relative;
     justify-content: center;
@@ -611,12 +747,22 @@
     position: relative;
     left: 0;
     right: 0;
-    transition: width 0.3s linear, top 0.3s linear, bottom 0.3s linear,
+    transition:
+      width 0.3s linear,
+      top 0.3s linear,
+      bottom 0.3s linear,
       -webkit-transform 0.3s linear;
-    transition: width 0.3s linear, transform 0.3s linear, top 0.3s linear,
+    transition:
+      width 0.3s linear,
+      transform 0.3s linear,
+      top 0.3s linear,
       bottom 0.3s linear;
-    transition: width 0.3s linear, transform 0.3s linear, top 0.3s linear,
-      bottom 0.3s linear, -webkit-transform 0.3s linear;
+    transition:
+      width 0.3s linear,
+      transform 0.3s linear,
+      top 0.3s linear,
+      bottom 0.3s linear,
+      -webkit-transform 0.3s linear;
   }
 
   .burger__menu::before,
@@ -634,7 +780,9 @@
     left: auto;
     width: 20px;
     right: 0;
-    transition: width 0.3s linear, right 0.3s linear;
+    transition:
+      width 0.3s linear,
+      right 0.3s linear;
   }
 
   .burger__menu.active::before {
@@ -697,7 +845,7 @@
 
   .header__nav-item {
     width: 100%;
-    border-bottom: 1px solid rgba($primary-color, 0.5);
+    border-bottom: 1px solid rgba($main-color, 0.5);
   }
 
   .header__nav-item:last-child {
@@ -721,8 +869,11 @@
     overflow: hidden;
     margin: 0;
     padding: 0;
-    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out,
-      margin 0.3s ease-in-out, padding 0.3s ease-in-out;
+    transition:
+      max-height 0.3s ease-in-out,
+      opacity 0.3s ease-in-out,
+      margin 0.3s ease-in-out,
+      padding 0.3s ease-in-out;
   }
 
   .tabb__content.active {
@@ -742,12 +893,12 @@
   }
 
   .header__service-tabbs li a {
-    color: $secondary-color;
+    color: $accent-color;
     font-weight: 400;
     font-size: 14px;
 
     &:hover {
-      color: $primary-color;
+      color: $main-color;
     }
   }
 
@@ -768,7 +919,9 @@
     width: 9px;
     height: 9px;
     transform: rotate(45deg);
-    transition: border-color 0.3s linear, transform 0.3s linear;
+    transition:
+      border-color 0.3s linear,
+      transform 0.3s linear;
   }
 
   .header__tabb.active:after {
@@ -783,8 +936,11 @@
     overflow: hidden;
     margin: 0;
     padding: 0;
-    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out,
-      margin 0.3s ease-in-out, padding 0.3s ease-in-out;
+    transition:
+      max-height 0.3s ease-in-out,
+      opacity 0.3s ease-in-out,
+      margin 0.3s ease-in-out,
+      padding 0.3s ease-in-out;
   }
 
   .header__service-item.active {
@@ -805,10 +961,10 @@
   }
 
   .header__list ul .header__list-link a {
-    color: $primary-color;
+    color: $main-color;
 
     &:hover {
-      color: $secondary-color;
+      color: $accent-color;
     }
   }
 
@@ -817,7 +973,7 @@
     width: 100%;
     align-items: flex-start;
 
-    &>* {
+    & > * {
       width: 100%;
     }
   }
@@ -845,10 +1001,6 @@
 }
 
 @media (max-width: 450px) {
-  .header__badsee {
-    display: none;
-  }
-
   .header__wrapper {
     max-width: 100%;
   }
@@ -860,7 +1012,7 @@
     gap: 5px;
     width: 100%;
 
-    &>button {
+    & > button {
       max-width: 100%;
       width: 100%;
     }

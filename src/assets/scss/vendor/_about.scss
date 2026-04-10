@@ -10,7 +10,7 @@
     display: inline-block;
     font-size: 16px;
     font-weight: 600;
-    color: $secondary-color;
+    color: $accent-color;
     margin-bottom: 20px;
   }
 
@@ -40,18 +40,18 @@
 
   &__text-block {
     padding: 30px;
-    border-radius: $border-radius-large;
+    border-radius: 10px;
     min-height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: auto;
     &--left {
-      background: $primary-background;
+      background: $main-color-100;
     }
 
     &--right {
-      background: $primary-gradient;
+      background: $accent-color-700;
       color: #ffffff;
       text-align: center;
       align-items: center;
@@ -98,7 +98,7 @@
   }
 
   &__image {
-    border-radius: $border-radius-large;
+    border-radius: 10px;
     overflow: hidden;
     height: auto;
     & img {
@@ -207,7 +207,7 @@
 
 @media (max-width: 768px) {
   .about__text-block, .about__image  {
-    border-radius: $border-radius-small;
+    border-radius: 10px;
   }
   .about__subtitle {
     margin: 0;

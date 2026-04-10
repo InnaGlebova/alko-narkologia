@@ -9,7 +9,7 @@
 
 .gallery-page__item {
     flex-basis: calc(33.3333% - 6.666667px);
-    border-radius: $border-radius-large;
+    border-radius: 10px;
     overflow: hidden;
     width: 100%;
     height: 100%;
@@ -34,7 +34,7 @@
 @media (max-width: 1300px) {
     .gallery-page__item {
         flex-basis: calc(50% - 5px);
-        border-radius: $border-radius-medium;
+        border-radius: 10px;
         & picture {
             & img {
                 max-height: 360px;
@@ -46,7 +46,7 @@
 @media (max-width: 768px) {
     .gallery-page__item {
         flex-basis: 100%;
-        border-radius: $border-radius-medium;
+        border-radius: 10px;
         & picture {
             & img {
                 max-height: 320px;

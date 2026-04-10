@@ -3,7 +3,7 @@
 .installment {
   padding: 80px 0;
   margin: 80px 0;
-  background: $primary-color;
+  background: $main-color;
   position: relative;
   overflow: hidden;
 
@@ -60,7 +60,7 @@
 
   &__btn {
     &:hover {
-      background-color: $secondary-color;
+      background-color: $accent-color;
     }
   }
 
@@ -82,13 +82,13 @@
   }
 
   &__card {
-    background: $primary-background;
+    background: $main-color-100;
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: center;
     padding: 24px;
-    border-radius: $border-radius-large;
+    border-radius: 10px;
     position: relative;
     gap: 28px;
     line-height: 1;
@@ -99,7 +99,7 @@
       content: "";
       width: 4px;
       height: 66%;
-      background-color: $primary-color;
+      background-color: $main-color;
       position: absolute;
       right: 24px;
     }
@@ -107,7 +107,7 @@
     .card__value {
       font-size: 64px;
       font-weight: 700;
-      color: $primary-color;
+      color: $main-color;
 
       & span {
         font-size: 24px;
@@ -117,7 +117,7 @@
     .card__label {
       font-size: 20px;
       font-weight: 500;
-      color: $secondary-color;
+      color: $accent-color;
     }
   }
 }

@@ -65,7 +65,7 @@
   &__inner {
     width: calc(60% - 50px);
     background-color: white;
-    border-radius: $border-radius-small;
+    border-radius: 10px;
     position: relative;
     overflow: visible;
     min-height: 534px;
@@ -140,8 +140,8 @@
 
 .licences__item {
   position: relative;
-  background-color: $primary-background;
-  border-radius: $border-radius-small;
+  background-color: $main-color-100;
+  border-radius: 10px;
   padding: 10px;
   width: 100%;
 }

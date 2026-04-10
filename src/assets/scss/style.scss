@@ -1,16 +1,29 @@
 /*Общие */
-$primary-color: #10213A;
-$secondary-color: #D3451A;
-$tertiary-color: #0F172A;
-$primary-gradient: linear-gradient(90deg,
-    rgba(0, 115, 122, 1) 0%,
-    rgba(1, 184, 180, 1) 100%);
+$main-color: #10213a;
+$main-color-800: #1a365d;
+$main-color-700: #3a6699;
+$main-color-600: #567ca8;
+$main-color-500: #7292b6;
+$main-color-400: #8ea8c5;
+$main-color-300: #aabed3;
+$main-color-200: #c7d3e2;
+$main-color-100: #f2f5f7;
 
-$primary-background: #F0F4F8;
+$accent-color: #d3451a;
+$accent-color-800: #ff5722;
+$accent-color-700: #ff6c42;
+$accent-color-600: #ff815d;
+$accent-color-500: #ff9678;
+$accent-color-400: #ffab93;
+$accent-color-300: #ffc0ae;
+$accent-color-200: #ffd5c9;
+$accent-color-100: #ffeae4;
 
-$border-radius-large: 30px;
-$border-radius-medium: 20px;
-$border-radius-small: 14px;
+$black-color: #0f172a;
+$black-color-400: #334155;
+$black-color-300: #64748b;
+$black-color-200: #94a3b8;
+$black-color-100: #cbd5e1;
 
 html {
   font-size: 18px;
@@ -57,9 +70,9 @@ body {
   font-size: 16px;
   font-weight: 400;
   line-height: 1.43;
-  color: $primary-color;
+  color: $black-color;
   font-family: "Manrope", sans-serif;
-  background-color: #fff;
+  background-color: $main-color-100;
 
   &.lock {
     overflow: hidden;
@@ -93,12 +106,12 @@ scrollbar-button {
 
 ::-webkit-scrollbar-thumb {
   border-radius: 5px;
-  background-color: $primary-color;
+  background-color: $main-color;
   cursor: pointer;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: $primary-color;
+  background-color: $main-color;
 }
 
 ::-webkit-resizer {
@@ -114,7 +127,9 @@ a,
 button {
   text-decoration: none;
   color: inherit;
-  transition: color 0.3s linear, background-color 0.3s linear,
+  transition:
+    color 0.3s linear,
+    background-color 0.3s linear,
     border-color 0.3s linear;
   cursor: pointer;
   background: none;
@@ -239,7 +254,7 @@ h4 {
 }
 
 .section-title {
-  color: $secondary-color;
+  color: $accent-color;
   font-size: 64px;
   font-weight: 700;
   line-height: 1.1;
@@ -248,13 +263,13 @@ h4 {
   margin-bottom: 24px;
 
   & span {
-    color: $primary-color;
+    color: $main-color;
   }
 }
 
 a {
   &:hover {
-    color: $primary-color;
+    color: $main-color;
   }
 }
 
@@ -273,7 +288,7 @@ a {
   text-align: start;
 
   & span {
-    color: $primary-color;
+    color: $main-color;
   }
 }
 
@@ -322,7 +337,7 @@ a {
     transition: background-color 0.3s linear;
 
     &:hover {
-      background-color: $secondary-color;
+      background-color: $accent-color;
 
       & picture {
         & img {
@@ -338,7 +353,7 @@ a {
       justify-content: center;
       align-items: center;
 
-      &>img {
+      & > img {
         object-fit: contain;
         width: 22px;
         height: auto;
@@ -362,38 +377,40 @@ textarea {
 
 /* btn */
 .standart-btn {
-  padding: 17px 24px;
+  padding: 18px 32px;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 500;
   display: flex;
   justify-content: center;
-  border-radius: $border-radius-large;
+  border-radius: 5px;
   text-align: center;
   align-items: center;
   line-height: 1;
-  transition: color 0.3s linear, background-color 0.3s linear,
+  transition:
+    color 0.3s linear,
+    background-color 0.3s linear,
     border-color 0.3s linear;
 }
 
 .primary-btn {
-  background-color: $primary-color;
+  background-color: $accent-color-800;
   color: white;
 
   @media (hover: hover) {
     &:hover {
-      background-color: $secondary-color;
+      background-color: $main-color-800;
     }
   }
 }
 
 .secondary-btn {
   background-color: white;
-  color: $primary-color;
-  border: 1px solid $primary-color;
+  color: $main-color;
+  border: 1px solid $main-color;
 
   @media (hover: hover) {
     &:hover {
-      background-color: $primary-color;
+      background-color: $main-color;
       color: white;
       border: 1px solid transparent;
     }
@@ -402,26 +419,26 @@ textarea {
 
 .tertiary-btn {
   background-color: white;
-  color: $primary-color;
+  color: $main-color;
 
   @media (hover: hover) {
     &:hover {
-      background-color: $secondary-color;
+      background-color: $accent-color;
       color: white;
     }
   }
 }
 
 .quaternary-btn {
-  background-color: $primary-color;
+  background-color: $main-color;
   color: white;
   border: 1px solid white;
 
   @media (hover: hover) {
     &:hover {
       background-color: white;
-      color: $primary-color;
-      border: 1px solid $primary-color;
+      color: $main-color;
+      border: 1px solid $main-color;
     }
   }
 }
@@ -449,11 +466,11 @@ textarea {
   align-items: center;
   gap: 10px;
   font-size: 14px;
-  color: $secondary-color;
+  color: $accent-color;
 
   & a {
     &:hover {
-      color: $primary-color;
+      color: $main-color;
     }
   }
 }
@@ -465,7 +482,7 @@ textarea {
 }
 
 .breadcrumbs li:last-of-type {
-  color: rgba($secondary-color, 0.7);
+  color: rgba($accent-color, 0.7);
 
   &::after {
     display: none;
@@ -491,7 +508,7 @@ textarea {
 
   & a {
     &:hover {
-      color: $primary-color;
+      color: $main-color;
     }
   }
 }
@@ -512,21 +529,17 @@ textarea {
 
 .logo {
   display: flex;
-  gap: 6px;
+  gap: 12px;
   align-items: center;
   max-height: fit-content;
-
-  &:hover {
-    color: $primary-color;
-  }
 }
 
 .logo__picture {
   height: 100%;
-  max-height: 40px;
-  min-height: 40px;
-  max-width: 40px;
-  min-width: 40px;
+  max-height: 48px;
+  min-height: 48px;
+  max-width: 48px;
+  min-width: 48px;
   width: 100%;
   object-fit: contain;
   display: flex;
@@ -534,7 +547,7 @@ textarea {
   align-items: center;
   flex-shrink: 0;
 
-  &>img {
+  & > img {
     object-fit: contain;
     width: 100%;
     height: 100%;
@@ -542,26 +555,11 @@ textarea {
 }
 
 .logo__text {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 7px;
-  height: 100%;
-  white-space: nowrap;
-
-  & p {
-    font-size: 9.41px;
-    line-height: 1;
-    font-weight: 400;
-    color: $secondary-color;
-  }
-
   & span {
-    font-size: 25px;
+    font-size: 20px;
     line-height: 1;
-    font-weight: 700;
-    color: $primary-color;
-    text-transform: uppercase;
+    font-weight: 600;
+    color: $black-color;
   }
 }
 
@@ -578,7 +576,7 @@ textarea {
 }
 
 .color-bg {
-  background-color: $primary-background;
+  background-color: $main-color-100;
 }
 
 .section-offset-bottom {
@@ -608,26 +606,26 @@ textarea {
 }
 
 .sitemap-page__content {
-  &>ul {
+  & > ul {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
 
-    &>li {
+    & > li {
       flex-basis: calc(33.333% - 7.5px);
-      background-color: $primary-background;
-      border-radius: $border-radius-medium;
+      background-color: $main-color-100;
+      border-radius: 10px;
       display: flex;
       flex-direction: column;
       padding: 40px;
       gap: 40px;
 
-      &>a {
+      & > a {
         font-size: 24px;
         font-weight: 700;
       }
 
-      &>ul {
+      & > ul {
         display: flex;
         flex-direction: column;
         gap: 24px;
@@ -665,7 +663,7 @@ textarea {
         clip-path: circle(0% at 100% 100%);
         z-index: 2;
         transition: clip-path 0.4s ease-in-out;
-        background: $secondary-color;
+        background: $accent-color;
       }
     }
 
@@ -690,7 +688,6 @@ textarea {
 }
 
 @media (max-width: 1200px) {
-
   .page-subtitle {
     margin-bottom: 20px;
     font-size: 14px;
@@ -770,20 +767,20 @@ textarea {
   }
 
   .sitemap-page__content {
-    &>ul {
+    & > ul {
       gap: 10px;
 
-      &>li {
+      & > li {
         flex-basis: calc(50% - 5px);
-        border-radius: $border-radius-medium;
+        border-radius: 10px;
         padding: 30px;
         gap: 30px;
 
-        &>a {
+        & > a {
           font-size: 20px;
         }
 
-        &>ul {
+        & > ul {
           gap: 20px;
           font-size: 16px;
         }
@@ -793,7 +790,6 @@ textarea {
 }
 
 @media (max-width: 768px) {
-
   .breadcrumbs {
     margin-bottom: 20px;
   }
@@ -890,22 +886,21 @@ textarea {
     width: 8px;
   }
 
-
   .sitemap-page__content {
-    &>ul {
+    & > ul {
       gap: 10px;
 
-      &>li {
+      & > li {
         flex-basis: 100%;
-        border-radius: $border-radius-small;
+        border-radius: 10px;
         padding: 20px;
         gap: 20px;
 
-        &>a {
+        & > a {
           font-size: 16px;
         }
 
-        &>ul {
+        & > ul {
           gap: 10px;
           font-size: 14px;
         }

@@ -19,6 +19,7 @@ const webpack = require('webpack');
 const webpackStream = require('webpack-stream');
 var postcss = require('gulp-postcss');
 const browsersync = require("browser-sync").create();
+const mergeStream = require("merge-stream");
 
 
 
@@ -116,7 +117,7 @@ function css() {
 }
 
 
-function js(cb) {
+function js() {
     return src(path.src.js, { base: './src/assets/js/' })
         .pipe(plumber())
         .pipe(rigger())
@@ -128,44 +129,51 @@ function js(cb) {
         }))
         .pipe(dest(path.build.js))
          .pipe(browsersync.stream())
-        cb()
 } 
 
-function images(cb) {
-     gulp.src(path.src.images)
-   .pipe(imagemin( [
-	imagemin.mozjpeg({quality: 95, progressive: true}),
-	imagemin.optipng({optimizationLevel: 3, bitDepthReduction: false, colorTypeReduction: false, paletteReduction: false}),],
-    ))
-    .pipe(dest(path.build.images))
-    return src(path.src.imagesWebp)
-    .pipe(imagemin( [
-	imagemin.mozjpeg({quality: 100, progressive: true}),
-	imagemin.optipng({optimizationLevel: 3, bitDepthReduction: false, colorTypeReduction: false, paletteReduction: false}),],
-    ))
-    .pipe(webp({quality: 95}))
-    .pipe(dest(path.build.images))
-    
-  
-    
-    cb()
+function images() {
+    const rasterAndVector = src(path.src.images)
+        .pipe(imagemin([
+            imagemin.mozjpeg({ quality: 95, progressive: true }),
+            imagemin.optipng({
+                optimizationLevel: 3,
+                bitDepthReduction: false,
+                colorTypeReduction: false,
+                paletteReduction: false
+            })
+        ]))
+        .pipe(dest(path.build.images));
+
+    const webpStreamTask = src(path.src.imagesWebp)
+        .pipe(imagemin([
+            imagemin.mozjpeg({ quality: 100, progressive: true }),
+            imagemin.optipng({
+                optimizationLevel: 3,
+                bitDepthReduction: false,
+                colorTypeReduction: false,
+                paletteReduction: false
+            })
+        ]))
+        .pipe(webp({ quality: 95 }))
+        .pipe(dest(path.build.images));
+
+    return mergeStream(rasterAndVector, webpStreamTask);
 }
-function fonts(cb) {
+function fonts() {
     return src(path.src.fonts)
     .pipe(dest(path.build.fonts));
-    cb()
 }
-function clean(cb) {
+function clean() {
     return del(path.clean);
-    cb()
 }
 
-function watchFiles() {
+function watchFiles(cb) {
     gulp.watch([path.watch.html], html);
     gulp.watch([path.watch.css], css);
     gulp.watch([path.watch.js], js);
     gulp.watch([path.watch.images], images);
     gulp.watch([path.watch.fonts], fonts);
+    cb();
 }
 
 const build = gulp.series(clean, gulp.parallel(html, css, js, images, fonts));
