@@ -1,0 +1,105 @@
+/* numbers */
+.numbers {
+  background-color: white;
+}
+
+.numbers__inner {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+
+  & > * {
+    flex-basis: calc(33.333% - 13.333px);
+  }
+}
+
+.numbers__item {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  background-color: $main-color-100;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.numbers__item-icon {
+  max-width: 44px;
+  max-height: 61px;
+  height: 100%;
+  width: 100%;
+  min-width: 44px;
+  min-height: 61px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $main-color-600;
+
+  & img {
+    width: 16px;
+    height: 13px;
+    object-fit: contain;
+  }
+}
+
+.numbers__item-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 5px;
+  & span {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  & p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+}
+
+.numbers__btn {
+  margin: 0 auto;
+}
+/* numbers media */
+@media (max-width: 1024px) {
+  .numbers__item-wrap {
+    gap: 5px;
+    & span {
+      font-size: 24px;
+    }
+
+  }
+
+  .numbers__item {
+    padding: 15px;
+  }
+  .numbers__inner {
+    display: flex;
+    gap: 10px;
+
+  
+    & > * {
+      flex-basis: calc(33.333% - 6.667px);
+    }
+  }
+  
+}
+
+@media (max-width: 768px) {
+    .numbers__inner {
+        flex-wrap: wrap;
+        gap: 5px;
+        & > * {
+            flex-basis: 100%;
+        }
+    }
+    .numbers__item-wrap p {
+        font-size: 14px;
+    }
+}

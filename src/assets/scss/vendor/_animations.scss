@@ -2,32 +2,6 @@
 	transition: opacity 0.8s, transform 0.8s;
 }
 
-.draw-center {
-	transition: mask-size 2s;
-	&.to_animate {
-		mask-image: url("../img/animations/mask.svg");
-		mask-repeat: repeat-y;
-		mask-position: center;
-		mask-size: 0;
-
-		&.animated {
-			mask-size: 100%;
-		}
-	}
-}
-
-.draw-left {
-	transition: mask-size 2s;
-	&.to_animate {
-		mask-image: url("../img/animations/mask.svg");
-		mask-repeat: repeat-y;
-		mask-size: 0;
-
-		&.animated {
-			mask-size: 100%;
-		}
-	}
-}
 
 .down-fade {
 	&.to_animate {
@@ -130,34 +104,6 @@
 			opacity: 1;
 			transform: translateX(0);
 		}
-	}
-}
-
-.pulse-animation {
-	&.to_animate {
-		opacity: 0;
-		transform: scale(0.8);
-
-		&.animated {
-			opacity: 1;
-			transform: scale(1);
-			animation: pulse 1s ease-in-out 2;
-		}
-	}
-}
-
-@keyframes pulse {
-	0% {
-		transform: scale(1);
-		box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
-	}
-	50% {
-		transform: scale(1.05);
-		box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
-	}
-	100% {
-		transform: scale(1);
-		box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
 	}
 }
 

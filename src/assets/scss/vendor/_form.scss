@@ -7,71 +7,79 @@
   flex-wrap: wrap;
 
   &__input {
-    background: rgba(255, 255, 255, 0.2);
-    color: #fff;
-    padding: 22px;
-    border-radius: 40px;
+    background: $main-color-100;
+    color: $black-color-300;
+    padding: 18px 20px;
+    border-radius: 5px;
     width: 100%;
     align-items: center;
+
+    &::placeholder {
+      color: $black-color-300;
+    }
+
+    &:focus {
+      outline: 1px solid $black-color-300;
+    }
   }
 
   &__textarea {
     width: 100%;
-    background: rgba(255, 255, 255, 0.2);
-    color: #fff;
+    background: $main-color-100;
+    color: $black-color-200;
     border-radius: 40px;
     padding: 22px;
     min-height: 150px;
     max-height: 150px;
     overflow-y: auto;
+    resize: none;
+
+    &::placeholder {
+      color: $black-color-200;
+    }
   }
 }
 
 .policy-checkbox {
   display: flex;
   align-items: flex-start;
-  gap: 8px;
+  gap: 10px;
   font-weight: 400;
   cursor: pointer;
+  margin-bottom: 20px;
 
   input[type="checkbox"] {
     position: relative;
     appearance: none;
-    width: 16px;
-    height: 16px;
-    border: 1px solid white;
-    border-radius: 50%;
-    background: transparent;
+    width: 20px;
+    height: 20px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    background: $accent-color-100;
     cursor: pointer;
     flex-shrink: 0;
     margin-top: 2px;
     transition: all 0.3s ease;
 
     &:checked {
-      background: transparent;
-      border-color: white;
+      background:  $accent-color-100;
+      border-color: $accent-color-800;
 
       &::after {
-        content: "";
+        content: "✔";
         position: absolute;
         left: 50%;
         top: 50%;
-        width: 10px;
-        height: 10px;
-        background: white;
-        border-radius: 50%;
+        color: $accent-color-800;
+        font-size: 14px;
         transform: translate(-50%, -50%);
       }
     }
 
     &:hover {
-      border-color: white;
+      border-color: $accent-color-800;
     }
 
-    &:focus {
-      outline: 2px solid transparent;
-      outline-offset: 2px;
-    }
   }
 
   .policy-text {
@@ -79,22 +87,17 @@
     opacity: 0.7;
     font-size: 14px;
     a {
-      color: white;
+      color: $accent-color-800;
       text-decoration: underline;
       transition: color 0.3s linear;
-      text-decoration: underline;
       opacity: 1;
 
       &:hover {
-        color: $accent-color;
+        color: $main-color-800;
       }
     }
   }
 }
 
-.form__input::placeholder,
-.popup__textarea::placeholder {
-  color: white;
-}
 
 /* form media */

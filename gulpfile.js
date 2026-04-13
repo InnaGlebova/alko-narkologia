@@ -118,7 +118,17 @@ function css() {
 
 
 function js() {
-    return src(path.src.js, { base: './src/assets/js/' })
+    const jsBase = { base: "./src/assets/js/" };
+    const jsMain = "src/assets/js/app.js";
+    const jsVendor = ["src/assets/js/**/*.js", `!${jsMain}`];
+
+    const main = src(jsMain, jsBase)
+        .pipe(plumber())
+        .pipe(rigger())
+        .pipe(dest(path.build.js))
+        .pipe(browsersync.stream());
+
+    const vendor = src(jsVendor, jsBase)
         .pipe(plumber())
         .pipe(rigger())
         .pipe(gulp.dest(path.build.js))
@@ -128,7 +138,9 @@ function js() {
             extname: ".js"
         }))
         .pipe(dest(path.build.js))
-         .pipe(browsersync.stream())
+        .pipe(browsersync.stream());
+
+    return mergeStream(main, vendor);
 } 
 
 function images() {

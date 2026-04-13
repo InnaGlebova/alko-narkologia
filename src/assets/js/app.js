@@ -1,5 +1,6 @@
 const header = document.querySelector(".header");
 const headerBottom = header ? header.querySelector(".header__bottom") : null;
+const headerMobileTop = header ? header.querySelector(".header-mobile__inner") : null;
 
 function initFixedHeaderBottom() {
   if (!header || !headerBottom) return;
@@ -7,7 +8,7 @@ function initFixedHeaderBottom() {
   const main = document.querySelector(".main");
   if (!main) return;
 
-  const isDesktop = () => window.innerWidth >= 1201;
+  const isDesktop = () => window.innerWidth >= 1025;
 
   // Точка, после которой нижняя часть должна фиксироваться
   const getTriggerY = () => headerBottom.getBoundingClientRect().top + window.scrollY;
@@ -49,6 +50,54 @@ function initFixedHeaderBottom() {
 }
 
 initFixedHeaderBottom();
+
+function initFixedHeaderMobile() {
+  if (!header || !headerMobileTop) return;
+
+  const main = document.querySelector(".main");
+  if (!main) return;
+
+  const isMobile = () => window.innerWidth <= 1024;
+
+  // Точка, после которой мобильный хедер должен фиксироваться
+  const getTriggerY = () =>
+    headerMobileTop.getBoundingClientRect().top + window.scrollY;
+
+  let triggerY = getTriggerY();
+  let mobileHeight = headerMobileTop.offsetHeight;
+
+  const recalc = () => {
+    triggerY = getTriggerY();
+    mobileHeight = headerMobileTop.offsetHeight;
+
+    // На десктопе мобильный хедер не фиксируем
+    if (!isMobile()) {
+      headerMobileTop.classList.remove("is-fixed");
+      main.style.paddingTop = "";
+    }
+  };
+
+  const onScroll = () => {
+    if (!isMobile()) return;
+
+    if (window.scrollY > triggerY) {
+      headerMobileTop.classList.add("is-fixed");
+      // Компенсируем выпавшую из потока высоту фиксированного блока
+      main.style.paddingTop = mobileHeight + "px";
+    } else {
+      headerMobileTop.classList.remove("is-fixed");
+      main.style.paddingTop = "";
+    }
+  };
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  ["load", "resize"].forEach((event) => window.addEventListener(event, recalc));
+
+  recalc();
+  onScroll();
+}
+
+initFixedHeaderMobile();
 
 /* show-more */
 function initShowMoreForContainer(showMoreInner) {
@@ -899,10 +948,84 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
   const headerServiceBtns = document.querySelectorAll(".header__service-btn");
+
+  const closeOtherHeaderServices = (exceptBtn) => {
+    headerServiceBtns.forEach((btn) => {
+      if (btn === exceptBtn) return;
+      btn.classList.remove("active");
+      const next = btn.nextElementSibling;
+      if (next) next.classList.remove("active");
+    });
+  };
+
   headerServiceBtns.forEach((headerServiceBtn) => {
+    const parentNavItem = headerServiceBtn.closest(".header__nav-item");
+    const submenu = headerServiceBtn.nextElementSibling;
+    const isHoverItem =
+      parentNavItem &&
+      parentNavItem.classList.contains("header__nav-item--hover");
+    const isDesktop = () => window.innerWidth >= 1025;
+
+    if (isHoverItem && parentNavItem && submenu) {
+      let closeTimerId = null;
+
+      const clearCloseTimer = () => {
+        if (closeTimerId) {
+          clearTimeout(closeTimerId);
+          closeTimerId = null;
+        }
+      };
+
+      const openHoverMenu = () => {
+        if (!isDesktop()) return;
+        clearCloseTimer();
+        closeOtherHeaderServices(headerServiceBtn);
+        headerServiceBtn.classList.add("active");
+        submenu.classList.add("active");
+      };
+
+      const scheduleCloseHoverMenu = () => {
+        if (!isDesktop()) return;
+        clearCloseTimer();
+        closeTimerId = setTimeout(() => {
+          headerServiceBtn.classList.remove("active");
+          submenu.classList.remove("active");
+        }, 180);
+      };
+
+      parentNavItem.addEventListener("mouseenter", openHoverMenu);
+
+      parentNavItem.addEventListener("mouseleave", () => {
+        scheduleCloseHoverMenu();
+      });
+
+      submenu.addEventListener("mouseenter", () => {
+        if (!isDesktop()) return;
+        clearCloseTimer();
+      });
+
+      submenu.addEventListener("mouseleave", () => {
+        scheduleCloseHoverMenu();
+      });
+
+      headerServiceBtn.addEventListener("click", (e) => {
+        if (isDesktop()) {
+          e.preventDefault();
+          return;
+        }
+        const willOpen = !headerServiceBtn.classList.contains("active");
+        if (willOpen) closeOtherHeaderServices(headerServiceBtn);
+        headerServiceBtn.classList.toggle("active");
+        submenu.classList.toggle("active");
+      });
+      return;
+    }
+
     headerServiceBtn.addEventListener("click", () => {
+      const willOpen = !headerServiceBtn.classList.contains("active");
+      if (willOpen) closeOtherHeaderServices(headerServiceBtn);
       headerServiceBtn.classList.toggle("active");
-      headerServiceBtn.nextElementSibling.classList.toggle("active");
+      if (submenu) submenu.classList.toggle("active");
     });
   });
 
