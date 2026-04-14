@@ -1,13 +1,5 @@
 /* price */
 
-.price__title {
-  margin-bottom: 60px;
-  text-align: start;
-}
-
-.price__badge {
-  text-align: start;
-}
 .price__content {
   color: $accent-color;
   gap: 10px;
@@ -19,21 +11,32 @@
 .price__table {
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
-  padding: 16px;
+  margin-bottom: 10px;
 
-  & > tbody > tr {
+  &>tbody>tr {
     display: flex;
     width: 100%;
-    border-bottom: 1px solid rgba($main-color, 0.3);
-
-    &:last-child {
-      border-bottom: none;
-    }
+    background-color: white;
+    padding: 25px;
+    border-radius: 5px;
+    color: $black-color;
+    align-items: center;
+    justify-content: space-between;
+    gap: 100px;
   }
+}
 
-  & > tbody > tr > td {
-    padding: 27px 0;
+.price__cost-btn {
+  color: $accent-color-800;
+  border: 1px solid transparent;
+  padding: 12px 24px;
+  background-color: $accent-color-100;
+  font-weight: 500;
+  border-radius: 5px;
+  transition: border-color 0.3s linear;
+
+  &:hover {
+    border-color: $accent-color-800;
   }
 }
 
@@ -41,37 +44,183 @@
   font-size: 16px;
   font-weight: 600;
   line-height: 1.56;
-  flex-basis: 70%;
+  flex-basis: 50%;
+}
+
+.price__cost-wrap {
+  display: grid;
+  grid-template-columns: 140px 120px 90px;
+  column-gap: 16px;
+  align-items: center;
+  flex-basis: 35%;
+  justify-content: end;
+}
+
+.price__label {
+  color: white;
+  border-radius: 50px;
+  padding: 10px 16px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+  width: 140px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-column: 1;
+  grid-row: 1;
+
+  &--green {
+    background-color: #2E7D32;
+  }
+
+  &--blue {
+    background-color: #0277BD;
+  }
 }
 
 .price__cost {
   color: $main-color;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 600;
   line-height: 1.4;
-  flex-basis: 15%;
-  text-align: right;
+  text-align: left;
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: start;
+
+  &--green {
+    color: #2E7D32;
+  }
 }
 
-.price__cost-btn {
-  font-weight: 600;
-  color: $main-color;
+.price__cost-old {
+  color: $black-color-200;
+  font-size: 16px;
+  font-weight: 500;
+  position: relative;
+  max-height: fit-content;
+  max-width: fit-content;
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: start;
+  white-space: nowrap;
 
-  &:hover {
-    color: $accent-color;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: $black-color-200;
   }
-
 }
 
 .price__btn {
-  flex-basis: 15%;
+  flex-basis: 10%;
   text-align: right;
 }
 
 .price-page__content {
   flex-direction: column;
+
   &>* {
     width: 100%;
+  }
+}
+
+.price__bottom {
+  display: flex;
+  gap: 10px;
+
+  &>* {
+    flex-basis: calc(50% - 5px);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
+    border-radius: 5px;
+    padding: 40px;
+    overflow: hidden;
+  }
+
+  &-header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &-title {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  &-subtitle {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+  }
+}
+
+.payment-methods {
+  background: url('../img/price/decor-bg-blue.png') no-repeat center center;
+  background-size: cover;
+}
+
+.installment {
+  background: url('../img/price/decor-bg-orange.png') no-repeat center center;
+  background-size: cover;
+}
+
+.payment-methods__list {
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+
+  &>* {
+    background-color: white;
+    padding: 12px 18px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    color: $black-color;
+    line-height: 1;
+  }
+}
+
+.installment__inner {
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+
+  &>* {
+    flex-basis: calc(33.333% - 5.333px);
+    display: flex;
+    background-color: white;
+    padding: 20px 18px;
+    border-radius: 5px;
+    color: $black-color;
+    align-items: center;
+
+    &>span {
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1;
+      color: $accent-color-800;
+      padding-right: 10px;
+      margin-right: 10px;
+      border-right: 1px solid $black-color-100;
+    }
+
+    &>p {
+      font-size: 16px;
+    }
   }
 }
 
@@ -82,7 +231,7 @@
     font-size: 14px;
   }
 
-  .price__table > tbody > tr > td {
+  .price__table>tbody>tr>td {
     padding: 10px 5px 10px 0;
   }
 }
@@ -94,83 +243,33 @@
     border-bottom: 1px solid $main-color;
   }
 
-  .price__cost, .price__btn {
+  .price__cost-wrap {
+    grid-template-columns: 1fr;
+    justify-content: stretch;
+  }
+
+  .price__label {
+    width: auto;
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .price__cost,
+  .price__btn {
     flex-basis: calc(50% - 5px);
     width: calc(50% - 5px);
   }
 
-  .price__table > tbody > tr > td {
+  .price__cost,
+  .price__cost-old {
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: end;
+  }
+
+  .price__table>tbody>tr>td {
     border-bottom: none;
     padding: 10px;
-  }
-
-  .price__cost {
-    display: flex;
-    gap: 5px;
-    & span {
-      display: block;
-      font-weight: 500;
-    }
-  }
-}
-
-.payment-methods {
-  margin-top: 20px;
-  padding: 40px;
-  background: $accent-color-700;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
-
-  &__title {
-    color: white;
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 1.4;
-  }
-
-  &__list {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    justify-content: center;
-  }
-
-  &__item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: #ffffff3b;
-    backdrop-filter: blur(10px);
-    width: 90px;
-    height: 60px;
-  }
-
-  &__icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    img {
-      width: 100%;
-      height: 100%;
-      max-width: 20px;
-      object-fit: contain;
-    }
-  }
-
-  &__label {
-    color: white;
-    font-size: 14px;
-    font-weight: 500;
-    text-align: center;
-    line-height: 1.2;
   }
 }
 
@@ -179,30 +278,27 @@
   .payment-methods {
     border-radius: 20px;
     padding: 10px;
+
     &__item {
       border-radius: 20px;
     }
   }
-  
+
 }
 
 @media (max-width: 768px) {
   .payment-methods {
     flex-direction: column;
     border-radius: 10px;
-gap: 10px;
+    gap: 10px;
+
     &__list {
       gap: 5px;
     }
+
     &__item {
       border-radius: 10px;
       padding: 5px;
     }
-  }
-}
-
-@media (max-width: 480px) {
-  .payment-methods {
-
   }
 }

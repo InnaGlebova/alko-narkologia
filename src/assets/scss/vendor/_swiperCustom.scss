@@ -3,24 +3,38 @@
   width: 100%;
   position: relative;
   margin-bottom: 40px;
-  overflow: hidden;
+  overflow: visible;
+
+  .swiper-slide {
+    opacity: 0.3;
+    transition: opacity 0.25s ease;
+  }
+
+  .swiper-slide-active,
+  .swiper-slide-active+.swiper-slide,
+  .swiper-slide-active+.swiper-slide+.swiper-slide,
+  .swiper-slide-active+.swiper-slide+.swiper-slide+.swiper-slide {
+    opacity: 1;
+  }
 }
 
-/* Fix for Swiper overflow warning */
 .swiper img,
 .swiper video,
 .swiper canvas {
   overflow: hidden;
 }
+
 .swiper-pag {
   pointer-events: none;
   display: flex;
   gap: 10px;
   align-items: center;
 }
+
 .swiper_outside {
   position: relative;
 }
+
 .swiper-pag_outside {
   position: relative;
   top: 50%;
@@ -31,39 +45,25 @@
   width: calc(100% + 172px);
   justify-content: space-between;
 }
-.slider-button {
-  width: 46px;
+
+.swiper-button {
+  width: 52px;
   pointer-events: all;
   flex-shrink: 0;
-  height: 46px;
+  height: 52px;
   cursor: pointer;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
-  background-color: $main-color-100;
+  border-radius: 5px;
+  background-color: white;
   transition: background-color 0.3s linear, border-color 0.3s linear,
     color 0.3s linear, fill 0.3s linear, stroke 0.3s linear;
-  background-color: $main-color;
   border: 1px solid transparent;
-  & svg {
-    path {
-      fill: white;
-      stroke: white;
-    }
-  }
 
   &:hover {
-    background-color: $main-color-100;
     border-color: $main-color;
-
-    & svg {
-      path {
-        fill: $main-color;
-        stroke: $main-color;
-      }
-    }
   }
 }
 
@@ -73,38 +73,35 @@
 }
 
 .swiper-pagination-horizontal.swiper-pagination-bullets {
-  position: absolute;
-  bottom: 15px;
-  left: 50%;
-  bottom: 0;
-  transform: translate(-50%, 0);
-  max-width: 400px;
+  position: static;
+  max-width: fit-content;
   z-index: 3;
   justify-content: center;
   display: flex;
+  gap: 8px;
   margin: 0;
   border-radius: 4px;
-  height: 8px;
-  background-color: $main-color-100;
+  height: fit-content;
+  background-color: white;
+  padding: 22px;
 }
 
-.swiper-pagination-horizontal.swiper-pagination-bullets
-  .swiper-pagination-bullet {
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
   flex: 1;
   border-radius: 50px;
-  height: 3px;
-  background-color: $main-color;
-  transition: opacity 0.3s ease;
-  opacity: 0;
-  margin: 0;
-  border-radius: 4px;
   height: 8px;
+  width: 8px;
+  max-width: 8px;
+  background-color: $accent-color-800;
+  transition: opacity 0.3s ease;
+  opacity: 0.2;
+  margin: 0;
 }
 
-.swiper-pagination-horizontal.swiper-pagination-bullets
-  .swiper-pagination-bullet-active {
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet-active {
   opacity: 1;
 }
+
 .swiper-pagination-horizontal.swiper-pagination-fraction {
   background-color: $main-color-100;
   max-width: fit-content;
@@ -114,10 +111,12 @@
   line-height: 1;
   color: rgba($main-color, 0.5);
   border-radius: 10px;
+
   & .swiper-pagination-current {
     color: $main-color;
     font-weight: 600;
   }
+
   & .swiper-pagination-total {
     font-weight: 500;
   }
@@ -130,21 +129,15 @@
 .swiper-button-disabled {
   cursor: auto;
   pointer-events: none;
-  background: $main-color-100;
-  border-color: $main-color-100;
-  & svg {
-    path {
-      fill: $main-color;
-      stroke: $main-color;
-    }
-  }
+  opacity: 0.5;
+
 }
-.slider-button_prev {
-  &::after {
-    transform: rotate(-225deg);
-    margin-right: 0;
-    margin-left: 3px;
-  }
+
+.swiper-btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 @media (max-width: 1400px) {
@@ -156,26 +149,24 @@
     margin-top: 30px;
   }
 }
+
 @media (max-width: 1020px) {
   .swiper-pag_hide {
     display: none;
   }
-  .slider-button {
-    height: 40px;
-    width: 40px;
-  }
-  .swiper-btn {
-    max-height: 40px;
-    padding: 10px 20px;
-  }
 }
 
-@media (max-width: 550px) {
-  .swiper-btn {
-    padding: 10px 20px;
+@media (max-width: 560px) {
+  .swiper-button {
+    display: none;
   }
 
   .swiper {
     margin-bottom: 20px;
+  }
+
+  .swiper-pagination-horizontal.swiper-pagination-bullets {
+    background-color: transparent;
+    padding: 0;
   }
 }

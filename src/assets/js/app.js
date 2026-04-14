@@ -318,11 +318,28 @@ document.addEventListener("DOMContentLoaded", function () {
         if (currentPopup.getAttribute("data-target") == "popup-change") {
           let originaTitle = currentPopup.querySelector(".original-title");
           let originaSubtitle = currentPopup.querySelector(".original-subtitle");
+
+          const setPopupTitleFontSize = (titleEl, sizePxOrNull) => {
+            if (!titleEl) return;
+            if (!titleEl.dataset.defaultFontSize) {
+              titleEl.dataset.defaultFontSize =
+                window.getComputedStyle(titleEl).fontSize || "";
+            }
+            titleEl.style.fontSize =
+              sizePxOrNull ?? titleEl.dataset.defaultFontSize;
+          };
+
           if (el.classList.contains("change__item-btn")) {
             if (el.classList.contains("doctors__btn")) {
               let currentItem = el.closest(".change__item-title");
               let currentTitile = currentItem.querySelector(".current-title");
               let currentSubtitile = currentItem.querySelector(".current-subtitle");
+              setPopupTitleFontSize(
+                originaTitle,
+                currentItem?.classList.contains("change__item-title--big")
+                  ? "26px"
+                  : null
+              );
               originaTitle.innerHTML =
                 "Записаться к специалисту: " + currentTitile.innerHTML;
               if (currentSubtitile && originaSubtitle) {
@@ -330,11 +347,18 @@ document.addEventListener("DOMContentLoaded", function () {
               }
             } else {
               if (el.classList.contains("change__item-btn_current")) {
+                setPopupTitleFontSize(originaTitle, null);
                 originaTitle.textContent = el.textContent;
               } else {
                 let currentItem = el.closest(".change__item-title");
                 let currentTitile = currentItem.querySelector(".current-title");
                 let currentSubtitile = currentItem.querySelector(".current-subtitle");
+                setPopupTitleFontSize(
+                  originaTitle,
+                  currentItem?.classList.contains("change__item-title--big")
+                    ? "26px"
+                    : null
+                );
                 originaTitle.innerHTML = currentTitile.innerHTML;
                 if (currentSubtitile && originaSubtitle) {
                   originaSubtitle.innerHTML = currentSubtitile.innerHTML;
@@ -342,6 +366,7 @@ document.addEventListener("DOMContentLoaded", function () {
               }
             }
           } else {
+            setPopupTitleFontSize(originaTitle, null);
             originaTitle.innerHTML = originalTitlePopup2;
             if (originaSubtitle) {
               originaSubtitle.innerHTML = originalSubtitlePopup2;
@@ -1100,6 +1125,42 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // sliders
+  const servicesSliderCheck = document.querySelectorAll(".services");
+  if (servicesSliderCheck.length > 0) {
+    servicesSliderCheck.forEach((slider) => {
+      const swiperServices = new Swiper(slider.querySelector(".swiper"), {
+        direction: "horizontal",
+        slidesPerView: 1.1,
+        grabCursor: true,
+        spaceBetween: 10,
+        navigation: {
+          nextEl: slider.querySelector(".services__swiper-button_next"),
+          prevEl: slider.querySelector(".services__swiper-button_prev"),
+        },
+        pagination: {
+          el: ".services-pagination",
+          type: "bullets",
+          clickable: true,
+        },
+        breakpoints: {
+          560: {
+            slidesPerView: 2.2,
+            spaceBetween: 10,
+          },
+          1024: {
+            slidesPerView: 3.2,
+            spaceBetween: 10,
+          },
+          1300: {
+            slidesPerView: 4.2,
+            spaceBetween: 10,
+          },
+        },
+      });
+    });
+  }
+
+
   const stagesSliderCheck = document.querySelectorAll(".stages");
   if (stagesSliderCheck.length > 0) {
     stagesSliderCheck.forEach((slider) => {
@@ -1136,8 +1197,8 @@ document.addEventListener("DOMContentLoaded", function () {
       const swiperReviews = new Swiper(slider.querySelector(".swiper"), {
         direction: "horizontal",
         navigation: {
-          nextEl: slider.querySelector(".reviews__slider-button_next"),
-          prevEl: slider.querySelector(".reviews__slider-button_prev"),
+          nextEl: slider.querySelector(".reviews__swiper-button_next"),
+          prevEl: slider.querySelector(".reviews__swiper-button_prev"),
         },
         pagination: {
           el: ".reviews-pagination",
@@ -1186,8 +1247,8 @@ document.addEventListener("DOMContentLoaded", function () {
       const swiperTabs = new Swiper(slider.querySelector(".swiper"), {
         direction: "horizontal",
         navigation: {
-          nextEl: slider.querySelector(".doctors__slider-button_next"),
-          prevEl: slider.querySelector(".doctors__slider-button_prev"),
+          nextEl: slider.querySelector(".doctors__swiper-button_next"),
+          prevEl: slider.querySelector(".doctors__swiper-button_prev"),
         },
         pagination: {
           el: ".doctors-pagination",
@@ -1310,8 +1371,8 @@ document.addEventListener("DOMContentLoaded", function () {
             swiper: swiper,
           },
           navigation: {
-            nextEl: ".gallery__slider-button_next",
-            prevEl: ".gallery__slider-button_prev",
+            nextEl: ".gallery__swiper-button_next",
+            prevEl: ".gallery__swiper-button_prev",
           },
           pagination: {
             el: ".gallery-pagination",
