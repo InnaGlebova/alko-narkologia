@@ -1160,6 +1160,41 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  const doctorsSliderCheck = document.querySelectorAll(".doctors");
+  if (doctorsSliderCheck.length > 0) {
+    doctorsSliderCheck.forEach((slider) => {
+      const swiperDoctors = new Swiper(slider.querySelector(".swiper"), {
+        direction: "horizontal",
+        slidesPerView: 1.1,
+        grabCursor: true,
+        spaceBetween: 10,
+        navigation: {
+          nextEl: slider.querySelector(".doctors__swiper-button_next"),
+          prevEl: slider.querySelector(".doctors__swiper-button_prev"),
+        },
+        pagination: {
+          el: ".doctors-pagination",
+          type: "bullets",
+          clickable: true,
+        },
+        breakpoints: {
+          560: {
+            slidesPerView: 2.2,
+            spaceBetween: 10,
+          },
+          1024: {
+            slidesPerView: 3.2,
+            spaceBetween: 10,
+          },
+          1300: {
+            slidesPerView: 4.2,
+            spaceBetween: 10,
+          },
+        },
+      });
+    });
+  }
+
 
   const stagesSliderCheck = document.querySelectorAll(".stages");
   if (stagesSliderCheck.length > 0) {
@@ -1236,52 +1271,6 @@ document.addEventListener("DOMContentLoaded", function () {
           550: {
             slidesPerView: 2,
             spaceBetween: 20,
-          },
-        },
-      });
-    });
-  }
-  const doctorsCheck = document.querySelectorAll(".doctors");
-  if (doctorsCheck.length > 0) {
-    doctorsCheck.forEach((slider) => {
-      const swiperTabs = new Swiper(slider.querySelector(".swiper"), {
-        direction: "horizontal",
-        navigation: {
-          nextEl: slider.querySelector(".doctors__swiper-button_next"),
-          prevEl: slider.querySelector(".doctors__swiper-button_prev"),
-        },
-        pagination: {
-          el: ".doctors-pagination",
-          type: "bullets",
-          clickable: true,
-        },
-        grabCursor: true,
-        slidesPerView: "auto",
-        spaceBetween: 20,
-        initialSlide: 2,
-        breakpoints: {
-          320: {
-            slidesPerView: 1.2,
-            spaceBetween: 20,
-            centeredSlides: false,
-          },
-          768: {
-            slidesPerView: 3,
-            spaceBetween: 20,
-            centeredSlides: true,
-          },
-          1200: {
-            effect: "coverflow",
-            centeredSlides: true,
-            slidesPerView: 5,
-            spaceBetween: 20,
-            coverflowEffect: {
-              rotate: 0,
-              stretch: 0,
-              depth: 500,
-              modifier: 0.2,
-              slideShadows: false,
-            },
           },
         },
       });
