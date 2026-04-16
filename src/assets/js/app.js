@@ -30,6 +30,14 @@ function initFixedHeaderBottom() {
   const onScroll = () => {
     if (!isDesktop()) return;
 
+    // Хедер может менять высоту/позицию динамически (плашка, шрифты, меню).
+    // Пересчитываем точку триггера только пока блок НЕ зафиксирован,
+    // иначе при fixed getBoundingClientRect().top станет ~0 и логика сломается.
+    if (!headerBottom.classList.contains("is-fixed")) {
+      triggerY = getTriggerY();
+      bottomHeight = headerBottom.offsetHeight;
+    }
+
     if (window.scrollY > triggerY) {
       if (!headerBottom.classList.contains("is-fixed")) {
         headerBottom.classList.add("is-fixed");
@@ -79,6 +87,11 @@ function initFixedHeaderMobile() {
 
   const onScroll = () => {
     if (!isMobile()) return;
+
+    if (!headerMobileTop.classList.contains("is-fixed")) {
+      triggerY = getTriggerY();
+      mobileHeight = headerMobileTop.offsetHeight;
+    }
 
     if (window.scrollY > triggerY) {
       headerMobileTop.classList.add("is-fixed");
@@ -294,6 +307,9 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector(".original-title").innerHTML;
   const originalSubtitlePopup2 =
     document.querySelector(".original-subtitle")?.innerHTML || "";
+  const originalPopupChangeSubmitText =
+    document.querySelector('[data-target="popup-change"] .popup__form button')
+      ?.textContent?.trim() || "";
   const closePopupBtns = document.querySelectorAll(".close-popup");
   closePopupBtns.forEach(function (el) {
     el.addEventListener("click", function (e) {
@@ -318,6 +334,8 @@ document.addEventListener("DOMContentLoaded", function () {
         if (currentPopup.getAttribute("data-target") == "popup-change") {
           let originaTitle = currentPopup.querySelector(".original-title");
           let originaSubtitle = currentPopup.querySelector(".original-subtitle");
+          let popupChangeSubmitBtn =
+            currentPopup.querySelector(".popup__form button");
 
           const setPopupTitleFontSize = (titleEl, sizePxOrNull) => {
             if (!titleEl) return;
@@ -345,10 +363,20 @@ document.addEventListener("DOMContentLoaded", function () {
               if (currentSubtitile && originaSubtitle) {
                 originaSubtitle.innerHTML = currentSubtitile.innerHTML;
               }
+              if (popupChangeSubmitBtn) {
+                popupChangeSubmitBtn.textContent = originalPopupChangeSubmitText;
+              }
             } else {
               if (el.classList.contains("change__item-btn_current")) {
                 setPopupTitleFontSize(originaTitle, null);
                 originaTitle.textContent = el.textContent;
+                if (originaSubtitle) {
+                  originaSubtitle.textContent =
+                    "Отправьте заявку и наши специалисты перезвонят вам в течении 10 минут";
+                }
+                if (popupChangeSubmitBtn) {
+                  popupChangeSubmitBtn.textContent = "Отправить";
+                }
               } else {
                 let currentItem = el.closest(".change__item-title");
                 let currentTitile = currentItem.querySelector(".current-title");
@@ -363,6 +391,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (currentSubtitile && originaSubtitle) {
                   originaSubtitle.innerHTML = currentSubtitile.innerHTML;
                 }
+                if (popupChangeSubmitBtn) {
+                  popupChangeSubmitBtn.textContent = originalPopupChangeSubmitText;
+                }
               }
             }
           } else {
@@ -370,6 +401,9 @@ document.addEventListener("DOMContentLoaded", function () {
             originaTitle.innerHTML = originalTitlePopup2;
             if (originaSubtitle) {
               originaSubtitle.innerHTML = originalSubtitlePopup2;
+            }
+            if (popupChangeSubmitBtn) {
+              popupChangeSubmitBtn.textContent = originalPopupChangeSubmitText;
             }
           }
         }
