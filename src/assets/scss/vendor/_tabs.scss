@@ -45,13 +45,15 @@
 }
 
 .tabs__wrapper {
-  margin-bottom: 60px;
   display: flex;
   justify-content: space-between;
   width: 100%;
   background-color: $main-color-100;
-  padding: 10px;
-  border-radius: 10px;
+  padding-right: 20px;
+  margin-right: 20px;
+  margin-left: auto;
+  border-right: 1px solid $main-color-200;
+  gap: 10px;
 }
 
 .one-line-tabs:not(.service-sidebar-tabs) .tab {
@@ -70,24 +72,24 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 90px;
-  color: $accent-color;
-  background-color: transparent;
+  color: $main-color-800;
+  background-color: white;
   text-align: start;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1;
-  padding: 23px;
-  border-radius: 10px;
+  padding: 16px 32px;
+  border-radius: 5px;
   transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
   font-size: 18px;
 
   &:hover {
     color: #fff;
-    background: $accent-color-700;
+    background: $main-color-800;
   }
 
   &.active {
     color: #fff;
-    background: $accent-color-700;
+    background: $main-color-800;
   }
 }
 
