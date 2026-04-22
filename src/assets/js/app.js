@@ -231,8 +231,114 @@ function refreshShowMoreAll() {
   });
 }
 
+function getRuPlural(n, one, few, many) {
+  const abs = Math.abs(n);
+  const mod10 = abs % 10;
+  const mod100 = abs % 100;
+  if (mod10 === 1 && mod100 !== 11) return one;
+  if (mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)) return few;
+  return many;
+}
+
+// Универсальный счетчик для табов.
+// Использование в HTML:
+// <span data-tab-count=".reviews__card" data-tab-count-forms="отзыв|отзыва|отзывов"></span>
+function updateTabCountsAll() {
+  document.querySelectorAll("[data-tab-count]").forEach((counter) => {
+    const itemSelector = (counter.dataset.tabCount || "").trim();
+    if (!itemSelector) return;
+
+    const tabsRoot = counter.closest(".tabs-container") || document;
+    const activeTab = tabsRoot.querySelector(".tab-content.active");
+    const count = activeTab ? activeTab.querySelectorAll(itemSelector).length : 0;
+
+    const formsRaw = (counter.dataset.tabCountForms || "").trim();
+    if (formsRaw) {
+      const forms = formsRaw
+        .split("|")
+        .map((s) => s.trim())
+        .filter(Boolean);
+      if (forms.length >= 3) {
+        const word = getRuPlural(count, forms[0], forms[1], forms[2]);
+        counter.textContent = `${count} ${word}`;
+        return;
+      }
+    }
+
+    counter.textContent = String(count);
+  });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   initShowMoreAll();
+  updateTabCountsAll();
+});
+
+/* text-hidden (read more) */
+function initTextHiddenAll() {
+  const MAX_HEIGHT = 370;
+  const expandedBtnText = "Скрыть текст";
+
+  document.querySelectorAll(".text-hidden").forEach((section) => {
+    const content = section.querySelector(".text__content");
+    const btn = section.querySelector(".text-hidden__btn");
+    if (!content || !btn) return;
+
+    const collapsedBtnText =
+      btn.dataset.collapsedText || btn.textContent.trim() || "Читать подробнее";
+    btn.dataset.collapsedText = collapsedBtnText;
+    btn.dataset.expandedText = btn.dataset.expandedText || expandedBtnText;
+
+    const needsToggle = content.scrollHeight > MAX_HEIGHT + 1;
+    section.classList.toggle("has-text-toggle", needsToggle);
+
+    if (!needsToggle) {
+      section.classList.remove("is-collapsed", "is-expanded");
+      btn.textContent = collapsedBtnText;
+      content.style.maxHeight = "";
+      return;
+    }
+
+    if (!section.classList.contains("is-expanded")) {
+      section.classList.add("is-collapsed");
+      section.classList.remove("is-expanded");
+      btn.textContent = collapsedBtnText;
+      content.style.maxHeight = `${MAX_HEIGHT}px`;
+    } else {
+      // если блок уже раскрыт (например, после возврата назад), фиксируем текущую высоту для анимаций
+      content.style.maxHeight = `${content.scrollHeight}px`;
+    }
+
+    if (btn.dataset.bound !== "true") {
+      btn.addEventListener("click", () => {
+        const willExpand = !section.classList.contains("is-expanded");
+
+        // фиксируем стартовую высоту (важно для корректного transition)
+        const startHeight = content.getBoundingClientRect().height;
+        content.style.maxHeight = `${startHeight}px`;
+
+        // переключаем классы
+        section.classList.toggle("is-expanded", willExpand);
+        section.classList.toggle("is-collapsed", !willExpand);
+
+        // следующий кадр — ставим целевую высоту
+        requestAnimationFrame(() => {
+          const target = willExpand ? content.scrollHeight : MAX_HEIGHT;
+          content.style.maxHeight = `${target}px`;
+        });
+
+        btn.textContent = willExpand
+          ? btn.dataset.expandedText
+          : btn.dataset.collapsedText;
+      });
+      btn.dataset.bound = "true";
+    }
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  initTextHiddenAll();
+  window.addEventListener("resize", initTextHiddenAll);
 });
 
 /* panel */
@@ -372,7 +478,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 originaTitle.textContent = el.textContent;
                 if (originaSubtitle) {
                   originaSubtitle.textContent =
-                    "Отправьте заявку и наши специалисты перезвонят вам в течении 10 минут";
+                    "Специалисты свяжутся с вами  в течение 15 минут";
                 }
                 if (popupChangeSubmitBtn) {
                   popupChangeSubmitBtn.textContent = "Отправить";
@@ -722,6 +828,7 @@ document.addEventListener("DOMContentLoaded", function () {
       setTimeout(() => {
         reviewsHide();
         refreshShowMoreAll();
+        updateTabCountsAll();
       }, 50);
     }
   }
@@ -867,6 +974,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   /* end yandex map */
 
+
   /* end show-more */
   function reviewsHide() {
     const reviews = document.querySelectorAll(".reviews__card");
@@ -899,22 +1007,49 @@ document.addEventListener("DOMContentLoaded", function () {
     inputSearch.forEach((elem) => {
       const wrapper = elem.closest(".search-wrapper");
       if (wrapper) {
+        const lists = wrapper.querySelectorAll(".search-list");
+
         function search() {
-          let filter = elem.value.toUpperCase();
-          let ul = wrapper.querySelectorAll(".search-list");
-          ul.forEach((item) => {
-            let li = item.getElementsByTagName("li");
-            for (let i = 0; i < li.length; i++) {
-              let a = li[i].querySelector(".search-list__name");
-              if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                li[i].classList.remove("hide");
-              } else {
-                li[i].classList.add("hide");
+          const raw = (elem.value || "").trim();
+          const filter = raw.toUpperCase();
+
+          lists.forEach((list) => {
+            list.classList.toggle("is-open", raw.length > 0);
+
+            // поддерживаем оба варианта разметки:
+            // 1) <ul><li>...</li></ul>
+            // 2) <ul><a class="search-list-item">...</a></ul>
+            const items = list.querySelectorAll("li, a.search-list-item");
+            items.forEach((item) => {
+              if (raw.length === 0) {
+                item.classList.remove("hide");
+                return;
               }
+
+              const nameEl = item.querySelector(".search-list__name");
+              const text = nameEl ? nameEl.textContent || "" : "";
+              item.classList.toggle("hide", text.toUpperCase().indexOf(filter) === -1);
+            });
+
+            // сообщение "По вашему запросу ничего не найдено"
+            let emptyEl = list.querySelector(".search-list__empty");
+            if (!emptyEl) {
+              emptyEl = document.createElement("span");
+              emptyEl.className = "search-list__empty";
+              emptyEl.textContent = "По вашему запросу ничего не найдено";
+              list.appendChild(emptyEl);
             }
+
+            const hasQuery = raw.length > 0;
+            const hasVisibleItems = Array.from(items).some((item) => !item.classList.contains("hide"));
+            list.classList.toggle("is-empty", hasQuery && !hasVisibleItems);
+            list.classList.toggle("has-results", hasQuery && hasVisibleItems);
           });
         }
-        document.addEventListener("keyup", search);
+
+        elem.addEventListener("input", search);
+        elem.addEventListener("keyup", search);
+        search();
       }
     });
   }
@@ -1178,11 +1313,11 @@ document.addEventListener("DOMContentLoaded", function () {
           },
           1024: {
             slidesPerView: 3.2,
-            spaceBetween: 10,
+            spaceBetween: 20,
           },
           1300: {
             slidesPerView: 4.2,
-            spaceBetween: 10,
+            spaceBetween: 20,
           },
         },
       });
@@ -1202,7 +1337,7 @@ document.addEventListener("DOMContentLoaded", function () {
           prevEl: slider.querySelector(".doctors__swiper-button_prev"),
         },
         pagination: {
-          el: ".doctors-pagination", 
+          el: ".doctors-pagination",
           type: "bullets",
           clickable: true,
         },
@@ -1213,11 +1348,11 @@ document.addEventListener("DOMContentLoaded", function () {
           },
           1024: {
             slidesPerView: 3.2,
-            spaceBetween: 10,
+            spaceBetween: 20,
           },
           1300: {
             slidesPerView: 4.2,
-            spaceBetween: 10,
+            spaceBetween: 20,
           },
         },
       });
@@ -1248,11 +1383,11 @@ document.addEventListener("DOMContentLoaded", function () {
           },
           1024: {
             slidesPerView: 3.2,
-            spaceBetween: 10,
+            spaceBetween: 20,
           },
           1300: {
             slidesPerView: 4.2,
-            spaceBetween: 10,
+            spaceBetween: 20,
           },
         },
       });
@@ -1272,7 +1407,7 @@ document.addEventListener("DOMContentLoaded", function () {
           prevEl: slider.querySelector(".licenses__swiper-button_prev"),
         },
         pagination: {
-          el: ".licenses-pagination", 
+          el: ".licenses-pagination",
           type: "bullets",
           clickable: true,
         },
@@ -1283,11 +1418,46 @@ document.addEventListener("DOMContentLoaded", function () {
           },
           1024: {
             slidesPerView: 3.2,
-            spaceBetween: 10,
+            spaceBetween: 20,
           },
           1300: {
             slidesPerView: 4.2,
+            spaceBetween: 20,
+          },
+        },
+      });
+    });
+  }
+
+  const partnersSliderCheck = document.querySelectorAll(".partners");
+  if (partnersSliderCheck.length > 0) {
+    partnersSliderCheck.forEach((slider) => {
+      const swiperPartners = new Swiper(slider.querySelector(".swiper"), {
+        direction: "horizontal",
+        slidesPerView: 1.1,
+        grabCursor: true,
+        spaceBetween: 10,
+        navigation: {
+          nextEl: slider.querySelector(".partners__swiper-button_next"),
+          prevEl: slider.querySelector(".partners__swiper-button_prev"),
+        },
+        pagination: {
+          el: ".partners-pagination",
+          type: "bullets",
+          clickable: true,
+        },
+        breakpoints: {
+          560: {
+            slidesPerView: 2.2,
             spaceBetween: 10,
+          },
+          1024: {
+            slidesPerView: 3.2,
+            spaceBetween: 20,
+          },
+          1300: {
+            slidesPerView: 4.2,
+            spaceBetween: 20,
           },
         },
       });

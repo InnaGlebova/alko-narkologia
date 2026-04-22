@@ -81,6 +81,19 @@ body {
   &.burger-lock {
     overflow: hidden;
   }
+
+  & a,
+  button,
+  [role="button"],
+  [onclick],
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"],
+  summary,
+  label {
+    cursor: url("/assets/img/icons/cursor-pointer.svg") 0 0, pointer !important;
+  }
+
 }
 
 .page {
@@ -106,12 +119,12 @@ scrollbar-button {
 
 ::-webkit-scrollbar-thumb {
   border-radius: 5px;
-  background-color: $main-color;
+  background-color: $main-color-800;
   cursor: pointer;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: $main-color;
+  background-color: $main-color-800;
 }
 
 ::-webkit-resizer {
@@ -293,10 +306,9 @@ h4 {
 }
 
 .page-title {
-  font-size: 64px;
-  font-weight: 700;
+  font-size: 60px;
+  font-weight: 600;
   line-height: 1.2;
-  margin-bottom: 40px;
   text-align: start;
 
   & span {
@@ -305,11 +317,8 @@ h4 {
 }
 
 .page-subtitle {
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1.4;
-  text-align: start;
-  max-width: 900px;
+  font-weight: 400;
+  margin-top: 40px;
 }
 
 .page-header {
@@ -317,8 +326,7 @@ h4 {
   flex-direction: column;
   text-align: start;
   align-items: flex-start;
-  margin-bottom: 60px;
-  margin-top: 20px;
+  padding: 80px 0;
 }
 
 .section-top {
@@ -381,7 +389,7 @@ textarea {
 
 /* btn */
 .standart-btn {
-  padding: 16px 32px;
+  padding: 18px 32px;
   font-size: 16px;
   font-weight: 500;
   display: flex;
@@ -448,6 +456,19 @@ textarea {
   }
 }
 
+.tertiary-btn {
+  background-color: $accent-color-100;
+  color: $accent-color-800;
+  transition:
+    background-color 0.3s linear,
+    color 0.3s linear;
+
+  &:hover {
+    background-color: $accent-color-800;
+    color: white;
+  }
+}
+
 .bg-white {
   background-color: white;
 }
@@ -461,18 +482,18 @@ textarea {
   position: relative;
   padding-top: 20px;
   margin-bottom: 50px;
+  z-index: 3;
 }
 
 .breadcrumbs li {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 14px;
-  color: $accent-color;
+  color: #ffffffb3;
 
   & a {
     &:hover {
-      color: $main-color;
+      color: $accent-color-800;
     }
   }
 }
@@ -484,49 +505,25 @@ textarea {
 }
 
 .breadcrumbs li:last-of-type {
-  color: rgba($accent-color, 0.7);
+  color: white;
 
   &::after {
     display: none;
   }
 }
 
-.breadcrumbs-white {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  align-items: center;
-  position: relative;
-  padding-top: 20px;
-  margin-bottom: 60px;
-}
-
-.breadcrumbs-white li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 13px;
-  color: rgb(255, 255, 255, 0.65);
+.breadcrumbs-black li {
+  color: $black-color-300;
 
   & a {
     &:hover {
-      color: $main-color;
+      color: $accent-color-800;
     }
   }
 }
 
-.breadcrumbs-white li::after {
-  content: "•";
-  display: block;
-  font-size: inherit;
-}
-
-.breadcrumbs-white li:last-of-type {
-  color: #ffffff;
-
-  &::after {
-    display: none;
-  }
+.breadcrumbs-black li:last-of-type {
+  color: $black-color;
 }
 
 .logo {
@@ -637,6 +634,66 @@ textarea {
   }
 }
 
+.zoom {
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    background: $black-color;
+    opacity: 0;
+    z-index: 2;
+    transition: opacity .3s linear;
+  }
+
+  &::after {
+    content: "";
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    background: url(../img/icons/zoom.svg) center center no-repeat;
+    opacity: 0;
+    z-index: 2;
+    transition: opacity .3s linear, scale .3s linear;
+    width: 50px;
+    height: 50px;
+    background-size: contain;
+  }
+
+  &:hover {
+    &::before {
+      opacity: 0.4;
+    }
+
+    &::after {
+      opacity: 1;
+      scale: 1.3;
+    }
+
+
+  }
+
+}
+
+.page-top {
+  margin-bottom: 80px;
+}
+
+.page-count {
+  color: $black-color-300;
+}
+
+.section-page__inner {
+  width: 100%;
+}
+
 @media (hover: hover) {
   .img-animation img {
     transition: scale 3s ease;
@@ -708,26 +765,11 @@ textarea {
     font-size: 20px;
   }
 
-  .section-offset-top {
-    padding-top: 100px;
-  }
-
-  .section-offset-bottom {
-    padding-bottom: 100px;
-  }
 
   .section-title {
     font-size: 34px;
   }
 
-  .section-offset {
-    margin-bottom: 100px;
-  }
-
-  .page-title {
-    font-size: 42px;
-    margin-bottom: 30px;
-  }
 
   .page-subtitle {
     margin-bottom: 20px;
@@ -735,13 +777,9 @@ textarea {
   }
 
   .breadcrumbs,
-  .breadcrumbs-white {
-    margin-bottom: 40px;
-    padding-top: 15px;
-  }
-
-  .page-header {
+  .breadcrumbs-black {
     margin-bottom: 20px;
+    padding-top: 15px;
   }
 
   .section-offset-top {
@@ -750,6 +788,10 @@ textarea {
 
   .section-offset-bottom {
     padding-bottom: 70px;
+  }
+
+  .section-offset {
+    margin-bottom: 70px;
   }
 
   .section-padding {
@@ -777,15 +819,37 @@ textarea {
       }
     }
   }
+
+  .page-header {
+    padding: 40px 0;
+  }
+
+  .page-subtitle {
+    font-size: 18px;
+    margin-top: 30px;
+  }
+
+  .page-title {
+    font-size: 34px;
+  }
+
+  .page-top {
+    margin-bottom: 40px;
+  }
 }
 
 @media (max-width: 768px) {
+
+  .page-header {
+    padding: 20px 0;
+  }
+
   .breadcrumbs {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 
   .section-offset {
-    margin-bottom: 80px;
+    margin-bottom: 40px;
   }
 
   .section__container {
@@ -857,15 +921,19 @@ textarea {
     display: none;
   }
 
+  .page-subtitle {
+    font-size: 16px;
+    margin-top: 20px;
+  }
+
   .page-title {
-    font-size: 32px;
-    margin-bottom: 20px;
+    font-size: 28px;
   }
 
   .breadcrumbs,
-  .breadcrumbs-white,
-  .breadcrumbs-white li,
-  .breadcrumbs-white li {
+  .breadcrumbs-black,
+  .breadcrumbs li,
+  .breadcrumbs-black li {
     gap: 5px;
   }
 
@@ -890,11 +958,11 @@ textarea {
   }
 
   .section-offset-top {
-    padding-top: 80px;
+    padding-top: 40px;
   }
 
   .section-offset-bottom {
-    padding-bottom: 80px;
+    padding-bottom: 40px;
   }
 
   .section-padding {
@@ -930,6 +998,10 @@ textarea {
       }
     }
   }
+
+  .page-top {
+    margin-bottom: 20px;
+  }
 }
 
 @import "vendor/_normalize";
@@ -954,7 +1026,7 @@ textarea {
 @import "vendor/_faq";
 @import "vendor/_reviews";
 @import "vendor/_doctors";
-@import "vendor/_licences";
+@import "vendor/_licenses";
 @import "vendor/_gallery";
 @import "vendor/_articles";
 @import "vendor/_navigation";
@@ -968,8 +1040,6 @@ textarea {
 @import "vendor/_service";
 @import "vendor/_doctors-page";
 @import "vendor/_reviews-page";
-@import "vendor/_licences-page";
-@import "vendor/_contacts-page";
 @import "vendor/_hide-items.scss";
 @import "vendor/_sidebar.scss";
 @import "vendor/_consultation.scss";
@@ -982,3 +1052,5 @@ textarea {
 @import "vendor/_departure.scss";
 @import "vendor/_chambers.scss";
 @import "vendor/_webinar.scss";
+@import "vendor/_directions.scss";
+@import "vendor/_partners.scss";

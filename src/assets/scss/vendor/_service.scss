@@ -1,330 +1,121 @@
-/* service-intro */
-
-.service-intro {
-  overflow: hidden;
-  margin: 60px 0;
-  &__bg {
-    background: $main-color-100;
-    border-radius: 10px;
-  }
-
-  &__main-inner {
-    padding: 40px 60px 0 60px;
-    position: relative;
-
-    &::before {
-      content: "";
-      position: absolute;
-      display: block;
-      top: 0;
-      right: 0;
-      max-height: 649px;
-      max-width: 820px;
-      width: 100%;
-      height: 100%;
-      background-image: url("/assets/img/service/pattern.png");
-      background-size: contain;
-      background-repeat: no-repeat;
-      z-index: 1;
-      pointer-events: none;
-    }
-  }
-
-  &__inner {
-    display: flex;
-    align-items: center;
-    gap: 60px;
-    position: relative;
-    z-index: 1;
-  }
-
-  &__content {
-    flex: 1;
-    max-width: 873px;
-    min-height: 442px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-bottom: 50px;
-  }
-
-  &__badge {
-    margin-bottom: 20px;
-  }
-
-  &__title {
-    & span {
-      color: $main-color;
-    }
-  }
-
-  &__description {
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 1.5;
-    margin-bottom: 60px;
-  }
-
-  &__buttons {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-  }
-
-  &__picture {
-    position: absolute;
-    z-index: 3;
-    bottom: -0;
-    right: 60px;
-    z-index: 2;
-
-    img {
-      width: 100%;
-      max-width: 509px;
-      height: auto;
-      border-radius: 10px;
-    }
-  }
+/* services page */
+.intro__subtitle {
+  z-index: 3;
+  margin-bottom: 30px;
 }
 
-.service-advantages {
-  &__inner {
-    display: flex;
-    gap: 60px;
-    align-items: start;
-    background: $accent-color-700;
-    border-radius: 10px;
-    padding: 40px 60px;
-    position: relative;
+.services-page__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
 
-    &::before {
-      content: "";
-      position: absolute;
-      display: block;
-      bottom: 40px;
-      left: 60px;
-      max-height: 200px;
-      height: 100%;
-      max-width: 200px;
-      width: 100%;
-      background-image: url("/assets/img/service/decor.png");
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      z-index: 1;
-      pointer-events: none;
+.services-page__title {
+  font-size: 44px;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+.services-page__item {
+  flex-basis: calc(25% - 15px);
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  gap: 10px;
+  transition: background-color 0.3s linear, color 0.3s linear;
+
+  & picture {
+    background-color: $accent-color-800;
+    width: 48px;
+    height: 48px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    transition: background-color 0.3s linear;
+
+    & img {
+      filter: brightness(0) saturate(100%) invert(97%) sepia(100%) saturate(14%) hue-rotate(217deg) brightness(105%) contrast(104%);
+      width: 10px;
+      height: 16px;
+      object-fit: contain;
+      transform: rotate(-90deg);
+      transition: filter 0.3s linear;
     }
   }
 
-  &__content {
-    max-width: 600px;
-    width: 100%;
-  }
-
-  &__badge {
-    text-align: start;
-  }
-
-  &__title {
+  &:hover {
+    background-color: $accent-color-800;
     color: white;
-  }
 
-  &__description {
-    font-size: 18px;
-    & p {
-      margin-bottom: 20px;
+    & picture {
+      background-color: white;
 
-      &:last-child {
-        margin-bottom: 0;
+      & img {
+        filter: brightness(0) saturate(100%) invert(52%) sepia(86%) saturate(4158%) hue-rotate(346deg) brightness(100%) contrast(102%);
+        width: 10px;
+        height: 16px;
+        object-fit: contain;
+        transform: rotate(-90deg);
       }
     }
   }
+}
 
-  &__blocks {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    align-items: stretch;
-    max-width: 1076px;
-    width: 100%;
+.services-page__wrapper {
+  margin-bottom: 80px;
+}
+
+/* services page media */
+@media(max-width: 1400px) {
+  .services-page__item {
+    flex-basis: calc(33.3333% - 13.3333px);
   }
 
-  &__item {
-    background: $main-color-100;
-    padding: 24px;
-    border-radius: 10px;
-    flex-basis: calc(33.333% - 6.66667px);
-    width: calc(33.333% - 6.66667px);
-    height: auto;
-    justify-content: space-between;
-    display: flex;
-    flex-direction: column;
+}
+
+@media(max-width: 1024px) {
+  .services-page__title {
+    font-size: 30px;
+    margin-bottom: 30px;
   }
 
-  &__picture {
-    min-width: 50px;
-    min-height: 50px;
-    max-width: 50px;
-    max-height: 50px;
-    background: $main-color;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    margin-bottom: 16px;
+  .services-page__item {
+    flex-basis: calc(50% - 10px);
+  }
 
-    & img {
-      width: 20px;
-      height: 20px;
-      object-fit: contain;
+  .services-page__wrapper {
+    margin-bottom: 40px;
+  }
+}
+
+@media(max-width: 768px) {
+  .services-page__title {
+    font-size: 26px;
+  }
+
+  .services-page__item {
+    flex-basis: 100%;
+    padding: 17px 15px;
+
+    & picture {
+      width: 40px;
+      height: 40px;
     }
   }
-  &__item-wrap {
-    display: flex;
-    align-items: start;
-    justify-content: space-between;
-    gap: 10px;
-    margin-bottom: 60px;
+
+  .services-page__list {
+    gap: 5px;
   }
 
-  &__item-title {
-    font-size: 20px;
-    font-weight: 600;
-  }
-}
-
-// Адаптивность
-@media (max-width: 1900px) {
-  .service-advantages__inner {
-    flex-wrap: wrap;
-  }
-  .service-advantages__blocks {
-    max-width: 100%;
-  }
-
-  .service-intro__picture {
-    position: static;
-  }
-}
-@media (max-width: 1340px) {
-  .service-intro__inner {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .service-intro__content {
-    max-width: 100%;
-  }
-
-  .service-intro__description {
-    margin-bottom: 0;
-  }
-  .service-intro__content {
-    gap: 30px;
-    min-height: 100%;
-  }
-  .service-advantages__inner {
-    padding: 30px;
-  }
-}
-@media (max-width: 1200px) {
-  .service-advantages__blocks {
-    & > * {
-      flex-basis: calc(50% - 5px);
-    }
-  }
-  .service-advantages__item-wrap {
-    margin-bottom: 20px;
-  }
-}
-@media (max-width: 1024px) {
-  .service-intro__main-inner {
-    padding: 30px 30px 0 30px;
-  }
-
-  .service-advantages__inner {
-    padding: 20px;
-  }
-
-  .service-advantages__inner,
-  .service-advantages__item {
-    border-radius: 10px;
-  }
-
-  .service-intro__description {
-    font-size: 16px;
-  }
-  .service-intro__content {
+  .services-page__wrapper {
     margin-bottom: 20px;
   }
 
-  .service-intro {
-    margin: 30px 0;
-  }
-
-  .service-advantages__item-title {
-    font-size: 18px;
-  }
-
-}
-
-@media (max-width: 768px) {
-  .service-intro__main-inner {
-    padding: 20px 20px 0 20px;
-  }
-  .service-advantages__item-title {
-    font-size: 16px;
-  }
-
-  .service-advantages__inner,
-  .service-advantages__item {
-    border-radius: 10px;
-  }
-
-  .service-advantages__blocks {
-    & > * {
-      flex-basis: 100%;
-    }
-  }
-
-  .service-advantages__inner {
-    gap: 30px;
-  }
-
-  .service-intro__buttons {
-    flex-wrap: wrap;
-    gap: 10px;
-
-    & > * {
-      flex-basis: 100%;
-      max-width: 100%;
-    }
-  }
-
-  .service-intro__description {
-    font-size: 14px;
-  }
-
-  .service-intro__content {
-    margin-bottom: 0;
-  }
-
-  .service-intro {
-    margin: 20px 0;
-  }
-
-  .service-advantages__picture {
-    max-height: 40px;
-    max-width: 40px;
-    min-height: 40px;
-    min-width: 40px;
-  }
-
-  .service-advantages__item {
-    padding: 18px;
-  }
-}
-
-@media (max-width: 480px) {
 }

@@ -7,6 +7,7 @@
   display: flex;
   align-items: center;
 }
+
 .reviews__card {
   background-color: white;
   padding: 25px;
@@ -44,15 +45,18 @@
     font-size: 14px;
   }
 }
+
 .reviews__card--video {
   & .reviews__card-picture {
     margin-bottom: 20px;
+
     & picture {
       max-height: 200px;
       height: 100%;
       overflow: hidden;
       position: relative;
       border-radius: 5px;
+
       & img {
         width: 100%;
         height: 100%;
@@ -87,6 +91,7 @@
 
       &:hover {
         cursor: pointer;
+
         &::before {
           transform: translate(-50%, -50%) scale(1.1);
           background: url(../img/reviews/play-hover.svg) no-repeat center center;
@@ -97,9 +102,13 @@
 }
 
 .reviews__card--pic {
+  border-radius: 5px;
+  overflow: hidden;
+
   & .reviews__card-picture {
     margin-bottom: 20px;
     flex-grow: 1;
+    border-radius: 5px;
   }
 }
 
@@ -121,29 +130,24 @@
     right: 0;
     bottom: 0;
     background: #ffffff;
-    background: -o-linear-gradient(
-      bottom,
-      #ffffff,
-      rgba(255, 255, 255, 0.2392156863)
-    );
-    background: -webkit-gradient(
-      linear,
-      left bottom,
-      left top,
-      from(#ffffff),
-      to(rgba(255, 255, 255, 0.2392156863))
-    );
-    background: linear-gradient(
-      0deg,
-      #ffffff,
-      rgba(255, 255, 255, 0.2392156863)
-    );
+    background: -o-linear-gradient(bottom,
+        #ffffff,
+        rgba(255, 255, 255, 0.2392156863));
+    background: -webkit-gradient(linear,
+        left bottom,
+        left top,
+        from(#ffffff),
+        to(rgba(255, 255, 255, 0.2392156863)));
+    background: linear-gradient(0deg,
+        #ffffff,
+        rgba(255, 255, 255, 0.2392156863));
   }
 }
 
 .reviews__btn.active {
   display: flex;
 }
+
 .reviews__btn {
   display: none;
   color: $accent-color-800;
@@ -165,8 +169,7 @@
     right: 0;
     transition: transform 0.3s linear;
     width: 12px;
-    filter: brightness(0) saturate(100%) invert(61%) sepia(74%) saturate(5671%)
-      hue-rotate(346deg) brightness(100%) contrast(102%);
+    filter: brightness(0) saturate(100%) invert(61%) sepia(74%) saturate(5671%) hue-rotate(346deg) brightness(100%) contrast(102%);
   }
 
   &:hover {
@@ -175,13 +178,11 @@
     }
   }
 }
+
 /* reviews media */
 
-@media (max-width: 1024px) {
-}
+@media (max-width: 1024px) {}
 
-@media (max-width: 768px) {
-}
+@media (max-width: 768px) {}
 
-@media (max-width: 470px) {
-}
+@media (max-width: 470px) {}

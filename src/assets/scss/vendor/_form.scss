@@ -17,10 +17,6 @@
     &::placeholder {
       color: $black-color-300;
     }
-
-    &:focus {
-      outline: 1px solid $black-color-300;
-    }
   }
 
   &__textarea {
@@ -62,7 +58,7 @@
     transition: all 0.3s ease;
 
     &:checked {
-      background:  $accent-color-100;
+      background: $accent-color-100;
       border-color: $accent-color-800;
 
       &::after {
@@ -86,6 +82,7 @@
     line-height: 1.4;
     opacity: 0.7;
     font-size: 14px;
+
     a {
       color: $accent-color-800;
       text-decoration: underline;

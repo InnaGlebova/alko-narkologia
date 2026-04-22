@@ -42,7 +42,7 @@
   </div>
 </div>
 
-<div class="popup" data-target="popup__city">
+<div class="popup popup__city" data-target="popup-city">
   <div class="popup__body">
     <div class="popup__content search-wrapper popup__content_city">
       <picture class="close close-popup">
@@ -50,8 +50,15 @@
         <img src="assets/img/icons/close.png" alt="close_popup" />
       </picture>
       <p class="popup__title">Выберите свой город</p>
-      <form class="popup__form-city form popup__form">
-        <input type="search" class="popup__input-city form__input" placeholder="Введите название города" />
+      <form class="popup__form-search form popup__form">
+        <div class="popup-search__field">
+          <picture class="popup-search__icon" aria-hidden="true">
+            <source srcset="/assets/img/icons/loupe.svg" type="image/svg+xml">
+            <img src="/assets/img/icons/loupe.png" alt="">
+          </picture>
+          <input type="search" placeholder="Введите название города" required=""
+            class="form__input search__input popup-search__input">
+        </div>
       </form>
       <ul class="city search-list">
         <li><a href="#" class="search-list__name">Челябинск</a></li>
@@ -85,11 +92,21 @@
         <li><a href="#" class="search-list__name">Ростов-на-Дону</a></li>
         <li><a href="#" class="search-list__name">Санкт-Петербург</a></li>
       </ul>
+      <div class="popup__form-search-bottom">
+        <span>Популярные города:</span>
+        <ul class="search-list-bottom">
+          <li><a href="#" class="search-list__name">Челябинск</a></li>
+          <li><a href="#" class="search-list__name">Москва</a></li>
+          <li><a href="#" class="search-list__name">Санкт-Петербург</a></li>
+          <li><a href="#" class="search-list__name">Казань</a></li>
+          <li><a href="#" class="search-list__name">Ростов-на-Дону</a></li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="popup popup-search" data-target="popup__search">
+<div class="popup popup__search" data-target="popup-search">
   <div class="popup__body popup-search__body">
     <div class="popup__content search-wrapper popup-search__content">
       <div class="container">
@@ -97,26 +114,97 @@
           <source srcset="/assets/img/icons/close.svg" type="image/svg+xml">
           <img src="/assets/img/icons/close.png" alt="close_popup">
         </picture>
+        <p class="popup__title">Поиск по сайту</p>
         <form class="popup__form-search form popup__form">
-          <input type="search" placeholder="Что ищите?" required=""
-            class="form__input search__input popup-search__input">
+          <div class="popup-search__field">
+            <picture class="popup-search__icon" aria-hidden="true">
+              <source srcset="/assets/img/icons/loupe.svg" type="image/svg+xml">
+              <img src="/assets/img/icons/loupe.png" alt="">
+            </picture>
+            <input type="search" placeholder="Поиск по сайту" required=""
+              class="form__input search__input popup-search__input">
+          </div>
         </form>
         <ul class="search search-list">
-          <li><a href="#" class="search-list__name">категория</a></li>
-          <li><a href="#" class="search-list__name">алкоголизм</a></li>
-          <li><a href="#" class="search-list__name">алкоголизм</a></li>
-          <li><a href="#" class="search-list__name">наркомания</a></li>
-          <li><a href="#" class="search-list__name">наркомания</a></li>
-          <li><a href="#" class="search-list__name">вывод из запоя</a></li>
-          <li><a href="#" class="search-list__name">вывод из запоя</a></li>
-          <li><a href="#" class="search-list__name">вывод из запоя</a></li>
-          <li><a href="#" class="search-list__name">категория</a></li>
-          <li><a href="#" class="search-list__name">категория</a></li>
-          <li><a href="#" class="search-list__name">категория</a></li>
-          <li><a href="#" class="search-list__name">категория</a></li>
-          <li><a href="#" class="search-list__name">наркомания</a></li>
-          <li><a href="#" class="search-list__name">наркомания</a></li>
+          <span>Результаты по вашему запросу:</span>
+          <a href="#" class="search-list-item">
+            <div class="search-list-item__wrap">
+              <span class="search-list__name">Алкоголизм</span>
+              <div class="search-list-label">Услуга</div>
+            </div>
+            <picture>
+              <img src="assets/img/icons/pointer.svg" alt="arrow-right">
+            </picture>
+          </a>
+          <a href="#" class="search-list-item">
+            <div class="search-list-item__wrap">
+              <span class="search-list__name">Наркомания</span>
+              <div class="search-list-label">Услуга</div>
+            </div>
+            <picture>
+              <img src="assets/img/icons/pointer.svg" alt="arrow-right">
+            </picture>
+          </a>
+          <a href="#" class="search-list-item">
+            <div class="search-list-item__wrap">
+              <span class="search-list__name">Кодирование по методу Довженко давай на две строчки</span>
+              <div class="search-list-label">Акция</div>
+            </div>
+            <picture>
+              <img src="assets/img/icons/pointer.svg" alt="arrow-right">
+            </picture>
+          </a>
+          <a href="#" class="search-list-item">
+            <div class="search-list-item__wrap">
+              <span class="search-list__name">Алкоголизм</span>
+              <div class="search-list-label">Услуга</div>
+            </div>
+            <picture>
+              <img src="assets/img/icons/pointer.svg" alt="arrow-right">
+            </picture>
+          </a>
+          <a href="#" class="search-list-item">
+            <div class="search-list-item__wrap">
+              <span class="search-list__name">Наркомания</span>
+              <div class="search-list-label">Услуга</div>
+            </div>
+            <picture>
+              <img src="assets/img/icons/pointer.svg" alt="arrow-right">
+            </picture>
+          </a>
+          <a href="#" class="search-list-item">
+            <div class="search-list-item__wrap">
+              <span class="search-list__name">Вывод из запоя</span>
+              <div class="search-list-label">Услуга</div>
+            </div>
+            <picture>
+              <img src="assets/img/icons/pointer.svg" alt="arrow-right">
+            </picture>
+          </a>
+          <a href="#" class="search-list-item">
+            <div class="search-list-item__wrap">
+              <span class="search-list__name">Кодирование по методу Довженко давай на две строчки</span>
+              <div class="search-list-label">Акция</div>
+            </div>
+            <picture>
+              <img src="assets/img/icons/pointer.svg" alt="arrow-right">
+            </picture>
+          </a>
+
         </ul>
+        <div class="popup__form-search-bottom">
+          <span>Чаще всего ищут</span>
+          <ul class="search-list-bottom">
+            <li><a href="#" class="search-list__name">Капельница на дом</a></li>
+            <li><a href="#" class="search-list__name">Кодирование на дому методом «Довженко»</a></li>
+            <li><a href="#" class="search-list__name">Вывод из запоя</a></li>
+            <li><a href="#" class="search-list__name">Нарколог на дом</a></li>
+            <li><a href="#" class="search-list__name">Капельница на дом</a></li>
+            <li><a href="#" class="search-list__name">Кодирование на дому методом «Довженко»</a></li>
+            <li><a href="#" class="search-list__name">Вывод из запоя</a></li>
+            <li><a href="#" class="search-list__name">Нарколог на дом</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -179,7 +267,7 @@
   </div>
 </div>
 
-<div class="popup" data-target="popup__success">
+<div class="popup" data-target="popup-success">
   <div class="popup__body">
     <div class="popup__content popup__content-response">
       <picture class="close close-popup">
@@ -191,17 +279,20 @@
           <source srcset="assets/img/icons/success.svg" type="image/svg+xml" />
           <img src="assets/img/icons/success.png" alt="user" />
         </picture>
-        <p class="popup__title">Спасибо за вашу заявку!</p>
+        <p class="popup__title">Заявка отправлена</p>
         <p class="popup__subtitle">
-          Дежурный специалист свяжется с вами в течение 1 минуты
+          Специалисты свяжутся с вами в течение 15 минут
         </p>
+        <a href="/" class="standart-btn popup-btn transparent-btn">
+          Вернуться на сайт
+        </a>
       </div>
     </div>
   </div>
 </div>
 
 
-<div class="popup" data-target="popup__error">
+<div class="popup" data-target="popup-error">
   <div class="popup__body">
     <div class="popup__content popup__content-response">
       <picture class="close close-popup">
@@ -213,10 +304,14 @@
           <source srcset="assets/img/icons/error.svg" type="image/svg+xml" />
           <img src="assets/img/icons/error.png" alt="user" />
         </picture>
-        <p class="popup__title">Произошла ошибка</p>
+        <p class="popup__title">Ошибка отправления заявки</p>
         <p class="popup__subtitle">
-          Попробуйте оставить заявку снова позже
+          Вы похожи на робота! Попробуйте
+          отправить заявку позже
         </p>
+        <a href="/" class="standart-btn popup-btn transparent-btn">
+          Вернуться на сайт
+        </a>
       </div>
     </div>
   </div>

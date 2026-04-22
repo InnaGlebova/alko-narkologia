@@ -44,6 +44,26 @@
   gap: 10px;
 }
 
+.faqs-page .tabs__wrapper {
+  margin-right: 0;
+  border-right: none;
+  max-width: fit-content;
+  padding-right: none;
+}
+
+.faqs-page__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.faqs-page__inner {
+  width: 100%;
+}
+
+
 /* faq media */
 @media (max-width: 1200px) {
   .faqs__main-inner {

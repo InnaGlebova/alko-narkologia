@@ -1,14 +1,29 @@
 /* reviews-page */
 
 .reviews-page {
+    & .tabs__wrapper {
+        padding-right: 0;
+        margin-right: 0;
+        border-right: none;
+        max-width: fit-content;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+
 
     &__inner {
         display: flex;
-        gap: 10px;
+        gap: 20px;
         flex-wrap: wrap;
 
         &>* {
-            flex-basis: calc(25% - 7.5px);
+            flex-basis: calc(25% - 15px);
         }
 
     }

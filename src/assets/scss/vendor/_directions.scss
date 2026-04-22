@@ -1,0 +1,31 @@
+/* directions */
+.directions__inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+
+    & .directions__item {
+        flex-basis: calc(20% - 16px);
+        padding: 16px 20px;
+        border-radius: 5px;
+        background-color: $main-color-100;
+        color: $black-color;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: $main-color-800;
+            color: white;
+        }
+
+        &.active {
+            background-color: $main-color-800;
+            color: white;
+        }
+    }
+}
+
+/* directions media */

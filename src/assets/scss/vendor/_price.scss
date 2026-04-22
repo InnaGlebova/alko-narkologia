@@ -224,6 +224,17 @@
   }
 }
 
+.price-page__title {
+  font-size: 44px;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+.price-page__wrap {
+  margin-bottom: 80px;
+}
+
+
 /* price media */
 @media (max-width: 1500px) {
   .price__table>tbody>tr {
@@ -274,6 +285,15 @@
 
   .price__name {
     flex-basis: 100%;
+  }
+
+  .price-page__title {
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+
+  .price-page__wrap {
+    margin-bottom: 40px;
   }
 }
 
@@ -347,5 +367,13 @@
 
   .price__name {
     font-weight: 400;
+  }
+
+  .price-page__title {
+    font-size: 26px;
+  }
+
+  .price-page__wrap {
+    margin-bottom: 20px;
   }
 }

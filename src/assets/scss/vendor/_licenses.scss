@@ -1,0 +1,38 @@
+/* licences */
+
+.licenses__card {
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.licenses-page__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.licenses__card {
+  flex-basis: calc(25% - 15px);
+}
+
+/* licences media */
+@media (max-width: 1400px) {
+  .licenses__card {
+    flex-basis: calc(33.333% - 13.333px);
+  }
+
+}
+
+@media (max-width: 1024px) {
+  .licenses__card {
+    flex-basis: calc(50% - 10px);
+  }
+
+}
+
+@media (max-width: 768px) {
+  .licenses__card {
+    flex-basis: 100%;
+  }
+
+}

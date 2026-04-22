@@ -1,44 +1,48 @@
 /* doctors-page */
 
-.doctors-page {
-    &__inner {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
+.doctors-page__inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 
-    &__item {
-        flex-basis: calc(25% - 7.5px);
-        width: calc(25% - 7.5px);
-        height: auto;
+    &>* {
+        flex-basis: calc(25% - 15px);
     }
 }
 
 /* doctors-page media */
 @media (max-width: 1400px) {
-    .doctors-page {
-        &__item {
-            flex-basis: calc(33.333% - 6.6667px);
-            width: calc(33.333% - 6.6667px);
+    .doctors-page__inner {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+
+        &>* {
+            flex-basis: calc(33.333% - 13.333px);
         }
     }
 }
 
 @media (max-width: 1024px) {
-    .doctors-page {
-        &__item {
-            flex-basis: calc(50% - 5px);
-            width: calc(50% - 5px);
+    .doctors-page__inner {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+
+        &>* {
+            flex-basis: calc(50% - 10px);
         }
     }
 }
 
 @media (max-width: 768px) {
-    .doctors-page {
-        &__item {
-            flex-basis: 100%;
-            width: 100%;
+    .doctors-page__inner {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
 
+        &>* {
+            flex-basis: 100%;
         }
     }
 }
