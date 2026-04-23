@@ -30,7 +30,6 @@
 - [Главная страница](https://innaglebova.github.io/alko-narkologia/index.html)
 - [Услуги](https://innaglebova.github.io/alko-narkologia/service.html)
 - [О клинике](https://innaglebova.github.io/alko-narkologia/about.html)
-<!-- - [Статья детальная](https://innaglebova.github.io/alko-narkologia/article.html) -->
 - [Статьи](https://innaglebova.github.io/alko-narkologia/articles.html)
 - [Контакты](https://innaglebova.github.io/alko-narkologia/contacts.html)
 - [Врач детальный](https://innaglebova.github.io/alko-narkologia/doctor.html)
@@ -38,10 +37,10 @@
 - [FAQ](https://innaglebova.github.io/alko-narkologia/faq.html)
 - [Галерея](https://innaglebova.github.io/alko-narkologia/gallery.html)
 - [Карта сайта](https://innaglebova.github.io/alko-narkologia/karta-sayta.html)
-- [Лицензии](https://innaglebova.github.io/alko-narkologia/licences.html)
+- [Лицензии](https://innaglebova.github.io/alko-narkologia/licenses.html)
 - [Ошибка 404](https://innaglebova.github.io/alko-narkologia/notfound.html)
 - [Прайс](https://innaglebova.github.io/alko-narkologia/price.html)
-- [Политика конфединциальности](https://innaglebova.github.io/alko-narkologia/privacy.html)
+- [Политика конфединциальности](https://innaglebova.github.io/alko-narkologia/policy.html)
 - [Отзывы](https://innaglebova.github.io/alko-narkologia/reviews.html)
 
 ## 🛠 Технологии
