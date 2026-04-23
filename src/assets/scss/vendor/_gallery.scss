@@ -9,10 +9,22 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  align-items: stretch;
 }
 
 .gallery__card {
   flex-basis: calc(25% - 15px);
+  height: 240px;
+
+  & picture {
+    height: 100%;
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
 }
 
 .gallery__card-picture {

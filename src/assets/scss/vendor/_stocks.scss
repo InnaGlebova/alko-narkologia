@@ -29,7 +29,7 @@
   justify-content: space-between;
   align-items: center;
   padding-top: 15px;
-  border-top: 1px solid $black-color-300;
+  border-top: 1px solid $black-color-100;
 }
 
 .stocks-page__card-bottom span {
@@ -37,3 +37,34 @@
 }
 
 /* stocks */
+
+@media (max-width: 1400px) {
+  .stocks-page__inner {
+    &>* {
+      flex-basis: calc(33.333% - 13.333px);
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .stocks-page__inner {
+    &>* {
+      flex-basis: calc(50% - 10px);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .stocks-page__inner {
+    gap: 10px;
+    flex-direction: column;
+
+    &>* {
+      padding: 20px;
+    }
+  }
+
+  .stocks-page__card-title {
+    font-size: 20px;
+  }
+}

@@ -151,7 +151,12 @@
     font-size: 12px;
     width: 100%;
     color: $main-color;
-    background-color: $main-color-100;
+    background-color: white;
+    font-weight: 400;
+  }
+
+  .tabs-mobile {
+    width: 100%;
   }
 
   .tabs__container:not(.service-sidebar-tabs .tabs__container) {
@@ -195,19 +200,20 @@
     padding: 15px 18px;
     border-radius: 5px;
     background: #fff;
-    color: $main-color;
+    color: $black-color;
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 400;
     line-height: 1;
     width: 100%;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
 
+
     &:hover {
-      background-color: #349c844f;
+      background-color: $accent-color-100;
     }
 
     &.active {
-      background-color: $main-color;
+      background-color: $accent-color-800;
       color: #fff;
     }
   }

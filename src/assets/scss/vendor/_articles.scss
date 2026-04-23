@@ -64,6 +64,12 @@
 @media (max-width: 768px) {
   .articles__card {
     flex-basis: 100%;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid $black-color-100;
   }
 
+  .articles-page__inner {
+    gap: 0;
+  }
 }

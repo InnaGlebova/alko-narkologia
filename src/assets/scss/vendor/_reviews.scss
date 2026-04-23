@@ -183,6 +183,38 @@
 
 @media (max-width: 1024px) {}
 
-@media (max-width: 768px) {}
+@media (max-width: 768px) {
+  .reviews__header-wrap {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .reviews__header-wrap {
+    display: contents;
+  }
+
+  .reviews-tabs__inner {
+    display: flex;
+    flex-direction: column;
+
+    & .section-title {
+      order: 1;
+    }
+
+    & .reviews-tabs_tabs {
+      order: 2;
+
+    }
+
+    & .reviews-tabs__wrapper {
+      order: 3;
+    }
+
+    & .section__header .section__link {
+      order: 4;
+    }
+  }
+}
 
 @media (max-width: 470px) {}

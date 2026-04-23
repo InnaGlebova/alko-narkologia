@@ -3,35 +3,47 @@
 .licenses__card {
   border-radius: 5px;
   overflow: hidden;
+  height: auto;
+
+  & picture {
+    height: 100%;
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
 }
 
 .licenses-page__inner {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  align-items: stretch;
 }
 
-.licenses__card {
+.licenses-page__inner .licenses__card {
   flex-basis: calc(25% - 15px);
 }
 
 /* licences media */
 @media (max-width: 1400px) {
-  .licenses__card {
+  .licenses-page__inner .licenses__card {
     flex-basis: calc(33.333% - 13.333px);
   }
 
 }
 
 @media (max-width: 1024px) {
-  .licenses__card {
+  .licenses-page__inner .licenses__card {
     flex-basis: calc(50% - 10px);
   }
 
 }
 
 @media (max-width: 768px) {
-  .licenses__card {
+  .licenses-page__inner .licenses__card {
     flex-basis: 100%;
   }
 

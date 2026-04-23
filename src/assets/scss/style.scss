@@ -69,7 +69,7 @@ body {
   padding: 0;
   font-size: 16px;
   font-weight: 400;
-  line-height: 1.43;
+  line-height: 1.2;
   color: $black-color;
   font-family: "IBM Plex Sans", sans-serif;
   background-color: $main-color-100;
@@ -345,7 +345,7 @@ h4 {
 textarea {
   align-items: center;
   background: rgba(255, 255, 255, 0.118);
-  border-radius: 8px;
+  border-radius: 5px;
   color: #fff;
   padding: 17px 20px;
   width: 100%;
@@ -608,27 +608,44 @@ textarea {
   &>ul {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 20px;
 
     &>li {
-      flex-basis: calc(33.333% - 7.5px);
+      flex-basis: calc(25% - 15px);
       background-color: $main-color-100;
-      border-radius: 10px;
+      border-radius: 5px;
       display: flex;
       flex-direction: column;
-      padding: 40px;
-      gap: 40px;
+      padding: 30px;
+      gap: 20px;
+      background-color: white;
+      ;
 
       &>a {
-        font-size: 24px;
+        font-size: 20px;
         font-weight: 700;
       }
 
       &>ul {
         display: flex;
         flex-direction: column;
-        gap: 24px;
-        font-size: 18px;
+        gap: 10px;
+
+        &>li {
+          position: relative;
+          padding-left: 20px;
+
+          &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 2px;
+            background-color: $accent-color-800;
+          }
+        }
       }
     }
   }
@@ -694,47 +711,11 @@ textarea {
   width: 100%;
 }
 
-@media (hover: hover) {
-  .img-animation img {
-    transition: scale 3s ease;
-  }
-
-  .img-animation {
-    overflow: hidden;
-    position: relative;
-    border-radius: 20px;
-
-    & picture {
-      position: relative;
-      overflow: hidden;
-      border-radius: 20px;
-
-      &::before {
-        border-radius: 20px;
-        display: block;
-        pointer-events: none;
-        content: "";
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        opacity: 0.5;
-        clip-path: circle(0% at 100% 100%);
-        z-index: 2;
-        transition: clip-path 0.4s ease-in-out;
-        background: $accent-color;
-      }
-    }
-
-    &:hover {
-      & picture {
-        &::before {
-          clip-path: circle(100%);
-        }
-      }
-
-      & img {
-        scale: 1.3;
+@media (max-width: 1440px) {
+  .sitemap-page__content {
+    &>ul {
+      &>li {
+        flex-basis: calc(33.333% - 13.333px);
       }
     }
   }
@@ -804,17 +785,11 @@ textarea {
 
       &>li {
         flex-basis: calc(50% - 5px);
-        border-radius: 10px;
-        padding: 30px;
-        gap: 30px;
+        border-radius: 5px;
+        gap: 10px;
 
         &>a {
           font-size: 20px;
-        }
-
-        &>ul {
-          gap: 20px;
-          font-size: 16px;
         }
       }
     }
@@ -849,7 +824,7 @@ textarea {
   }
 
   .section-offset {
-    margin-bottom: 40px;
+    margin-bottom: 80px;
   }
 
   .section__container {
@@ -983,7 +958,7 @@ textarea {
 
       &>li {
         flex-basis: 100%;
-        border-radius: 10px;
+        border-radius: 5px;
         padding: 20px;
         gap: 20px;
 
@@ -993,7 +968,6 @@ textarea {
 
         &>ul {
           gap: 10px;
-          font-size: 14px;
         }
       }
     }

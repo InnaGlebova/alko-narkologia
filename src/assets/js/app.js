@@ -348,6 +348,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const panelTitle = elem.querySelector(".panel-title");
     const panelBody = elem.querySelector(".panel-body");
 
+    if (!panelTitle || !panelBody) return;
+
     panelTitle.addEventListener("click", function () {
       this.classList.toggle("active");
       panelBody.classList.toggle("active");
@@ -461,7 +463,7 @@ document.addEventListener("DOMContentLoaded", function () {
               setPopupTitleFontSize(
                 originaTitle,
                 currentItem?.classList.contains("change__item-title--big")
-                  ? "26px"
+                  ? (window.matchMedia("(max-width: 550px)").matches ? "20px" : "26px")
                   : null
               );
               originaTitle.innerHTML =
@@ -490,7 +492,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 setPopupTitleFontSize(
                   originaTitle,
                   currentItem?.classList.contains("change__item-title--big")
-                    ? "26px"
+                    ? (window.matchMedia("(max-width: 550px)").matches ? "20px" : "26px")
                     : null
                 );
                 originaTitle.innerHTML = currentTitile.innerHTML;
@@ -684,6 +686,13 @@ document.addEventListener("DOMContentLoaded", function () {
       const tabActiveName = wrapper.querySelector(this.tab_active_name);
       const tabsClose = document.querySelectorAll(".tabs__close");
       let currentTab = 0;
+
+      // Если на странице нет нужной разметки табов — просто выходим,
+      // чтобы не падать с ошибкой closest/getBoundingClientRect.
+      if (!tabsWrapper || tabsButtonList.length === 0 || tabsContentList.length === 0) {
+        return;
+      }
+
       if (tabActiveName) {
         const pElement = tabsButtonList[currentTab].querySelector('p');
         tabActiveName.querySelector(".tabs__active-text").textContent =
@@ -791,14 +800,15 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }
 
-      tabsWrapper
-        .closest(".tabs__container")
-        .addEventListener("click", function (e) {
+      const tabsContainer = tabsWrapper.closest(".tabs__container");
+      if (tabsContainer) {
+        tabsContainer.addEventListener("click", function (e) {
           if (!e.target.closest(".tabs__wrapper")) {
-            tabsWrapper.closest(".tabs").classList.remove("active");
-            document.querySelector("html").classList.add("lock");
+            tabsWrapper.closest(".tabs")?.classList.remove("active");
+            document.querySelector("html").classList.remove("lock");
           }
         });
+      }
     }
 
     hideTabsContent({ list_tabs, list_buttons }) {
@@ -1126,9 +1136,10 @@ document.addEventListener("DOMContentLoaded", function () {
     burgerMenu.addEventListener("click", () => {
       if (burgerMenu.classList.contains("active")) {
       } else {
-        let height = header.offsetHeight;
-        let topPos = header.getBoundingClientRect().top + window.scrollY;
-        headerMobile.style.maxHeight = "calc(100vh - " + height + "px)";
+        const maxOffsetPx = 75;
+        if (headerMobile) {
+          headerMobile.style.maxHeight = `calc(100vh - ${maxOffsetPx}px)`;
+        }
       }
       headerMobile.classList.toggle("active");
       burgerMenu.classList.toggle("active");
@@ -1359,41 +1370,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  const reviewsSliderCheck = document.querySelectorAll(".reviews__inner");
-  if (reviewsSliderCheck.length > 0) {
-    reviewsSliderCheck.forEach((slider) => {
-      const swiperReviews = new Swiper(slider.querySelector(".swiper"), {
-        direction: "horizontal",
-        slidesPerView: 1.1,
-        grabCursor: true,
-        spaceBetween: 10,
-        navigation: {
-          nextEl: slider.querySelector(".reviews__swiper-button_next"),
-          prevEl: slider.querySelector(".reviews__swiper-button_prev"),
-        },
-        pagination: {
-          el: slider.querySelector(".reviews-pagination"),
-          type: "bullets",
-          clickable: true,
-        },
-        breakpoints: {
-          560: {
-            slidesPerView: 2.2,
-            spaceBetween: 10,
-          },
-          1024: {
-            slidesPerView: 3.2,
-            spaceBetween: 20,
-          },
-          1300: {
-            slidesPerView: 4.2,
-            spaceBetween: 20,
-          },
-        },
-      });
-    });
-  }
-
   const licensesSliderCheck = document.querySelectorAll(".licenses");
   if (licensesSliderCheck.length > 0) {
     licensesSliderCheck.forEach((slider) => {
@@ -1429,12 +1405,47 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  const reviewsSliderCheck = document.querySelectorAll(".reviews__inner");
+  if (reviewsSliderCheck.length > 0) {
+    reviewsSliderCheck.forEach((slider) => {
+      const swiperReviews = new Swiper(slider.querySelector(".swiper"), {
+        direction: "horizontal",
+        slidesPerView: 1.1,
+        grabCursor: true,
+        spaceBetween: 10,
+        navigation: {
+          nextEl: slider.querySelector(".reviews__swiper-button_next"),
+          prevEl: slider.querySelector(".reviews__swiper-button_prev"),
+        },
+        pagination: {
+          el: slider.querySelector(".reviews-pagination"),
+          type: "bullets",
+          clickable: true,
+        },
+        breakpoints: {
+          560: {
+            slidesPerView: 2.2,
+            spaceBetween: 10,
+          },
+          1024: {
+            slidesPerView: 3.2,
+            spaceBetween: 20,
+          },
+          1300: {
+            slidesPerView: 4.2,
+            spaceBetween: 20,
+          },
+        },
+      });
+    });
+  }
+
   const partnersSliderCheck = document.querySelectorAll(".partners");
   if (partnersSliderCheck.length > 0) {
     partnersSliderCheck.forEach((slider) => {
       const swiperPartners = new Swiper(slider.querySelector(".swiper"), {
         direction: "horizontal",
-        slidesPerView: 1.1,
+        slidesPerView: 1.8,
         grabCursor: true,
         spaceBetween: 10,
         navigation: {

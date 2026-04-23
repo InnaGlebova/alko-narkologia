@@ -101,6 +101,7 @@
       right: 46px;
       transform: translateY(-50%) rotate(45deg);
     }
+
     &::before {
       transform: translateY(-50%) rotate(-45deg);
     }
@@ -141,6 +142,7 @@
 
   &.active {
     pointer-events: all;
+
     &::before {
       opacity: 1;
     }
@@ -157,14 +159,17 @@
     pointer-events: all;
   }
 }
+
 .hide-item__list {
   display: flex;
   flex-direction: column;
 }
+
 .hide-item__item {
   border-radius: 10px;
   width: 100%;
-  & > a {
+
+  &>a {
     padding: 21px 30px;
     border-radius: 10px;
     width: 100%;
@@ -178,62 +183,94 @@
 
 /* hide media */
 
-@media (max-width: 951px) {
-  .hide__text {
-    padding: 12px 20px 12px 20px;
-    font-size: 14px;
+@media (max-width: 1024px) {
+  .hide__item-title span {
+    width: 35px;
+    height: 35px;
+    right: 30px;
+  }
+
+  .hide__item-title:after {
+    right: 31px;
+  }
+
+  .hide__item-title:before {
+    right: 38px;
   }
 
   .hide__item-title {
-    font-size: 14px;
-    padding: 12px 50px 12px 20px;
+    padding: 30px;
   }
 
   .hide__item-title {
-    &:after {
-      height: 10px;
-      right: 16px;
-      background-color: $main-color;
-    }
+    font-size: 20px;
 
     &.active {
-      &:after {
-        background-color: white;
+      &::after {
+        right: 39px;
+      }
+
+      &::before {
+        right: 39px;
       }
     }
   }
-  .hide__item-title {
-    &.active {
-      &:before {
-        background-color: white;
-      }
-    }
-    &:before {
-      width: 10px;
-      right: 27px;
-      background-color: $main-color;
-    }
+
+  .faqs__text {
+    padding: 20px;
   }
 
-  .hide__item {
-    &:before {
-      display: none;
-    }
-  }
-
-  .hide__inner {
-    gap: 5px;
-    margin-bottom: 25px;
-  }
 }
 
 /* faqs media */
 
 @media (max-width: 768px) {
   .hide__item {
-    border-radius: 10px;
+    border-radius: 5px;
+
     &:before {
       display: none;
     }
+  }
+
+  .hide__item-title span {
+    width: 32px;
+    height: 32px;
+    right: 20px;
+  }
+
+  .hide__item-title:after {
+    right: 20px;
+  }
+
+  .hide__item-title:before {
+    right: 28px;
+  }
+
+  .hide__item-title {
+    padding: 20px 60px 10px 10px;
+    font-size: 16px;
+
+    &.active {
+      &::after {
+        right: 28px;
+      }
+
+      &::before {
+        right: 28px;
+      }
+    }
+  }
+
+  .faq .section-title {
+    order: 1;
+  }
+
+  .faq__inner {
+    order: 2;
+  }
+
+  .faqs__text {
+    padding: 10px;
   }
 }

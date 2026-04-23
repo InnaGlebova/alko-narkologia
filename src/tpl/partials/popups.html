@@ -210,20 +210,21 @@
   </div>
 </div>
 
-<div class="popup" data-target="popup__review-call">
+<div class="popup" data-target="popup-review-call">
   <div class="popup__body">
     <div class="popup__content popup__content-review-call">
       <picture class="close close-popup">
         <source srcset="assets/img/icons/close.svg" type="image/svg+xml" />
         <img src="assets/img/icons/close.png" alt="close_popup" />
       </picture>
-      <p class="popup__title">Оставьте отзыв о работе наших специалистов</p>
+      <p class="popup__title">Оставьте ваш отзыв</p>
       <p class="popup__subtitle">
-        Оставляя отзыв, Вы помогаете нам стать лучше.
+        Ваше мнение очень важно для поддержания качества нашей работы
       </p>
       <form class="form popup__form">
-        <input type="text" class="form__input popup__input" placeholder="Ваше имя" required />
-        <textarea type="text" placeholder="Текст отзыва" class="form__textarea"></textarea>
+        <input type="text" class="form__input popup__input" placeholder="Введите имя" required />
+        <input type="tel" class="form__input popup__input" placeholder="Введите номер телефона" required />
+        <textarea type="text" placeholder="Ваш отзыв" class="form__textarea"></textarea>
         <label class="popup__policy-checkbox policy-checkbox">
           <input type="checkbox" checked required>
           <span class="popup__policy-text policy-text">

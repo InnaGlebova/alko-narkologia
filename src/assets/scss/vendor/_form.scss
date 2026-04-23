@@ -22,8 +22,8 @@
   &__textarea {
     width: 100%;
     background: $main-color-100;
-    color: $black-color-200;
-    border-radius: 40px;
+    color: $black-color-300;
+    border-radius: 5px;
     padding: 22px;
     min-height: 150px;
     max-height: 150px;
@@ -31,7 +31,7 @@
     resize: none;
 
     &::placeholder {
-      color: $black-color-200;
+      color: $black-color-300;
     }
   }
 }
@@ -98,3 +98,27 @@
 
 
 /* form media */
+
+@media (max-width: 768px) {
+  .form {
+    gap: 5px;
+
+    &__input {
+      padding: 15px;
+      border-radius: 3px
+    }
+
+    &__textarea {
+      padding: 15px;
+      border-radius: 3px;
+    }
+  }
+
+  .policy-checkbox {
+    margin: 15px 0;
+  }
+
+  .popup .popup-btn {
+    width: 100%;
+  }
+}

@@ -471,7 +471,7 @@
 
       & .search-list__name {
         position: relative;
-        padding-left: 30px;
+        padding-left: 25px;
         font-weight: 500;
 
         &::before {
@@ -570,7 +570,7 @@
 
   .popup__content {
     padding: 40px 20px 40px;
-    border-radius: 10px;
+    border-radius: 5px;
 
     &::before {
       right: 0;
@@ -579,8 +579,7 @@
   }
 
   .popup__title {
-    font-size: 22px;
-    margin-bottom: 0;
+    font-size: 30px;
   }
 
   .popup__subtitle {
@@ -604,10 +603,15 @@
 }
 
 @media (max-width: 768px) {
+  .popup__title {
+    font-size: 26px;
+  }
+
   .popup__response-wrap {
 
     & .popup__title {
-      font-size: 24px;
+      font-size: 26px;
+      margin-bottom: 10px;
     }
 
     & picture {
@@ -618,11 +622,51 @@
     }
   }
 
+  .popup__subtitle {
+    margin-bottom: 20px;
+  }
+
   .popup__content {
     padding: 30px 20px;
   }
 
   .popup__form {
     gap: 10px;
+  }
+
+  .popup__title.original-title {
+    font-size: 20px;
+  }
+
+  .reviews__card.reviews-item-original {
+    padding: 0;
+  }
+
+  .popup__search .search-list-bottom {
+    flex-direction: column;
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 5px;
+  }
+
+  .popup__search .search-list-bottom {
+    display: grid;
+  }
+
+  .popup-search__field {
+    padding: 15px;
+  }
+
+  .popup__content .container {
+    padding: 0;
+  }
+
+  .popup__city .search-list-bottom {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .city a {
+    flex-basis: 100%;
   }
 }

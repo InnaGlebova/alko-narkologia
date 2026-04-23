@@ -30,7 +30,7 @@
 - [Главная страница](https://innaglebova.github.io/alko-narkologia/index.html)
 - [Услуги](https://innaglebova.github.io/alko-narkologia/service.html)
 - [О клинике](https://innaglebova.github.io/alko-narkologia/about.html)
-- [Статья детальная](https://innaglebova.github.io/alko-narkologia/article.html)
+<!-- - [Статья детальная](https://innaglebova.github.io/alko-narkologia/article.html) -->
 - [Статьи](https://innaglebova.github.io/alko-narkologia/articles.html)
 - [Контакты](https://innaglebova.github.io/alko-narkologia/contacts.html)
 - [Врач детальный](https://innaglebova.github.io/alko-narkologia/doctor.html)

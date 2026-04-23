@@ -29,3 +29,23 @@
 }
 
 /* directions media */
+
+@media (max-width: 1024px) {
+    .directions__inner {
+        gap: 10px;
+
+        & .directions__item {
+            flex-basis: calc(50% - 10px);
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .directions__inner {
+        gap: 10px;
+
+        & .directions__item {
+            flex-basis: 100%;
+        }
+    }
+}
